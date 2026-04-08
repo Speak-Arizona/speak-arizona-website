@@ -79,7 +79,7 @@ The upgrade doesn't start with a new strategy or a better framework. It starts w
 
 ## About Anna Barnhill
 
-Anna Barnhill is an ICF Master Certified Coach, a credential held by fewer than 1% of coaches worldwide. She is a Professional Fellow at the Institute of Coaching at McLean Hospital/Harvard Medical School and teaches Leadership and Innovation at MIT Professional Education. Her insights on leadership have appeared in Forbes, and her new book, [Leaderwired: The AI-Era Leadership Playbook for Transforming How You Think, Decide and Lead](https://www.amazon.com/Leaderwired-AI-Era-Leadership-Playbook-Transforming/dp/B0GQD6YZKC/ref=zg_bsnr_g_2675_d_sccl_28/000-0000000-0000000?psc=1), is available now.
+Anna Barnhill is an ICF Master Certified Coach, a credential held by fewer than 1% of coaches worldwide. She is a Professional Fellow at the Institute of Coaching at McLean Hospital/Harvard Medical School and teaches Leadership and Innovation at MIT Professional Education. Her insights on leadership have appeared in Forbes, and her new book, [Leaderwired: The AI-Era Leadership Playbook for Transforming How You Think, Decide and Lead](https://www.amazon.com/Leaderwired-AI-Era-Leadership-Playbook-Transforming/dp/B0GQD6YZKC/ref=zg_bsnr_g_2675_d_sccl_28/000-0000000-0000000?psc=1), is available now. Anna's headshot was photographed by [Marie Feutrier](https://headshotsbymarie.com/news/when-your-headshot-becomes-an-author-photo/) at her Gilbert, Arizona studio.
 
 - [Website](https://www.annabarnhill.com/)
 - [LinkedIn](https://www.linkedin.com/in/annabarnhillmcc)
