@@ -1,7 +1,7 @@
 ---
 title: "The Leadership Approach That Built Your Career Is Breaking You"
 date: "April 7, 2026"
-excerpt: "ICF Master Certified Coach Anna Barnhill explains why the strengths that built your career are quietly working against you — and what it takes to upgrade your internal operating system before AI exposes the gaps."
+excerpt: "ICF Master Certified Coach Anna Barnhill explains why the strengths that built your career are quietly working against you — and what it takes to break through."
 tag: "Leadership"
 guest: "Anna Barnhill"
 youtubeUrl: "https://youtu.be/acFItkLAVnQ"

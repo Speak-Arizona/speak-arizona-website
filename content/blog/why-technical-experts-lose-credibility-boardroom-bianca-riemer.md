@@ -104,7 +104,7 @@ His skip-level boss's reaction? "This guy is like a completely new person."
 
 He was added to the promotion list.
 
-"It doesn't take years to build executive presence," Bianca says. "The lie out there in the market is that it takes years. But if you invest in the right tools and techniques, it can be as little as one coaching session, if you're willing to actually try."
+"It doesn't take years to build executive presence," Bianca says. "The lie out there in the market is that it takes years. But if you invest in the right tools and techniques, it can be as little as one coaching session, if you're willing to actually try." (Anna Barnhill takes this further in her episode on [the leadership blind spots that hold executives back](/news/leadership-approach-breaking-you-anna-barnhill/) — the invisible operating system that determines which skills you actually use under pressure.)
 
 The mindset piece is equally important. Visualisation, she argues, is not a soft concept. It is a practical tool for performance.
 

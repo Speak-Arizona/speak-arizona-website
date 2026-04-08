@@ -60,7 +60,7 @@ Matt calls out black-or-white thinking as especially dangerous when you're learn
 
 Here's where Matt's approach gets practical — and unexpectedly nerdy.
 
-He keeps a spreadsheet. Not just for goals or habits, but for his actual belief systems. He writes down his limiting beliefs, scores them on a scale of one to ten, rewrites them into something productive, and tracks his progress over time.
+He keeps a spreadsheet. Not just for goals or habits, but for his actual belief systems. He writes down his limiting beliefs, scores them on a scale of one to ten, rewrites them into something productive, and tracks his progress over time. (Anna Barnhill calls this your [internal operating system](/news/leadership-approach-breaking-you-anna-barnhill/) — the invisible code that drives how you think, feel, and lead.)
 
 So instead of "I can't make friends," he writes "I'm open to connection." Then every time he has a positive interaction — a conversation that went well, a joke that landed, a moment of genuine connection — he logs it. The number goes up by 0.1. Small gains. But gains that compound.
 
