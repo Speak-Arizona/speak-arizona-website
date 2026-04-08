@@ -18,27 +18,36 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug);
   if (!post) return {};
 
+  const ogImage = post.image
+    ? `https://speakarizona.com${post.image}`
+    : "https://speakarizona.com/images/speak-arizona-default-og.webp";
+  const ogImageAlt = post.imageAlt || post.title;
+
   return {
     title: post.title,
     description: post.excerpt,
     alternates: {
-      canonical: `https://speakarizona.com/news/${slug}`,
+      canonical: `https://speakarizona.com/news/${slug}/`,
     },
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `https://speakarizona.com/news/${slug}`,
+      url: `https://speakarizona.com/news/${slug}/`,
       siteName: "Speak Arizona",
       type: "article",
       publishedTime: new Date(post.date).toISOString(),
       images: [
         {
-          url: post.image
-            ? `https://speakarizona.com${post.image}`
-            : "https://speakarizona.com/images/speak-arizona-default-og.webp",
-          alt: post.imageAlt || post.title,
+          url: ogImage,
+          alt: ogImageAlt,
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [ogImage],
     },
   };
 }
@@ -77,7 +86,7 @@ export default async function BlogPost({
         url: "https://speakarizona.com/images/logo.png",
       },
     },
-    mainEntityOfPage: `https://speakarizona.com/news/${slug}`,
+    mainEntityOfPage: `https://speakarizona.com/news/${slug}/`,
   };
 
   // Extract YouTube embed ID from URL
@@ -205,7 +214,7 @@ export default async function BlogPost({
             <h2 className="font-heading font-bold text-lg text-black mb-4">Share this episode</h2>
             <div className="flex flex-wrap gap-3">
               <a
-                href={`https://www.linkedin.com/sharing/share-offsite/?url=https://speakarizona.com/news/${slug}`}
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=https://speakarizona.com/news/${slug}/`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-gray-light text-text hover:bg-blue hover:text-white px-4 py-2 rounded-full text-sm font-heading font-semibold transition-colors"
@@ -214,7 +223,7 @@ export default async function BlogPost({
                 LinkedIn
               </a>
               <a
-                href={`https://twitter.com/intent/tweet?url=https://speakarizona.com/news/${slug}&text=${encodeURIComponent(post.title)}`}
+                href={`https://twitter.com/intent/tweet?url=https://speakarizona.com/news/${slug}/&text=${encodeURIComponent(post.title)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-gray-light text-text hover:bg-blue hover:text-white px-4 py-2 rounded-full text-sm font-heading font-semibold transition-colors"
@@ -223,7 +232,7 @@ export default async function BlogPost({
                 X
               </a>
               <a
-                href={`https://www.facebook.com/sharer/sharer.php?u=https://speakarizona.com/news/${slug}`}
+                href={`https://www.facebook.com/sharer/sharer.php?u=https://speakarizona.com/news/${slug}/`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-gray-light text-text hover:bg-blue hover:text-white px-4 py-2 rounded-full text-sm font-heading font-semibold transition-colors"
@@ -232,7 +241,7 @@ export default async function BlogPost({
                 Facebook
               </a>
               <a
-                href={`mailto:?subject=${encodeURIComponent(post.title)}&body=${encodeURIComponent(`Check out this episode of Speak Arizona: https://speakarizona.com/news/${slug}`)}`}
+                href={`mailto:?subject=${encodeURIComponent(post.title)}&body=${encodeURIComponent(`Check out this episode of Speak Arizona: https://speakarizona.com/news/${slug}/`)}`}
                 className="inline-flex items-center gap-2 bg-gray-light text-text hover:bg-blue hover:text-white px-4 py-2 rounded-full text-sm font-heading font-semibold transition-colors"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
