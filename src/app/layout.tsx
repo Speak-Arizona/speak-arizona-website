@@ -129,16 +129,27 @@ export default function RootLayout({
             }),
           }}
         />
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-61S8X9W46R"
-          strategy="afterInteractive"
-        />
-        <Script id="gtag-init" strategy="afterInteractive">
+        <Script id="gtag-bootstrap" strategy="afterInteractive">
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-61S8X9W46R');
+            (function() {
+              var h = window.location.hostname;
+              var isLocal = h === 'localhost' || h === '127.0.0.1' ||
+                h.endsWith('.local') ||
+                /^192\\.168\\.|^10\\.|^172\\.(1[6-9]|2\\d|3[01])\\./.test(h);
+              window.dataLayer = window.dataLayer || [];
+              if (isLocal) {
+                window.gtag = function(){};
+                return;
+              }
+              function gtag(){dataLayer.push(arguments);}
+              window.gtag = gtag;
+              gtag('js', new Date());
+              gtag('config', 'G-61S8X9W46R');
+              var s = document.createElement('script');
+              s.async = true;
+              s.src = 'https://www.googletagmanager.com/gtag/js?id=G-61S8X9W46R';
+              document.head.appendChild(s);
+            })();
           `}
         </Script>
       </head>
