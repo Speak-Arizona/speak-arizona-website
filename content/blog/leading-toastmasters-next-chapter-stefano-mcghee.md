@@ -1,7 +1,7 @@
 ---
 title: "Leading Toastmasters Into Its Next Chapter"
 date: "April 29, 2026"
-excerpt: "Toastmasters International President-Elect Stefano McGhee on service, leading volunteers, the biggest challenges facing the organization, and why every club has more power than it realizes."
+excerpt: "Toastmasters President-Elect Stefano McGhee on service, leading volunteers, and why every club has more power than it realizes."
 tag: "Leadership"
 guest: "Stefano McGhee"
 youtubeUrl: "https://youtu.be/dUeYzqa4Fpc"
@@ -13,11 +13,11 @@ imagePosition: "center"
 
 ## What Toastmasters Has Been, and What It Needs to Become
 
-Toastmasters International has spent more than a century helping people find their voice. But the way people communicate today looks nothing like it did even ten years ago. Podcasts are shaping elections. Short-form video is replacing long-form presentations. AI is rewriting how professionals prepare, practice, and deliver. Virtual communities are competing with in-person connection for attention and time.
+Toastmasters International has spent more than [a century helping people find their voice](/news/public-speaking-has-no-age-limit-william-miller/). But the way people communicate today looks nothing like it did even ten years ago. Podcasts are shaping elections. Short-form video is replacing long-form presentations. AI is rewriting how professionals prepare, practice, and deliver. Virtual communities are competing with in-person connection for attention and time.
 
 So the question isn't just what Toastmasters has been. **The question is what Toastmasters needs to become.**
 
-Stefano McGhee is stepping into that challenge. As the International President-Elect of Toastmasters International, he carries more than 20 years of service to the organization and a career in technology leadership as Senior Director of Technology Operations at Harvard Business Publishing. On this episode of the Speak Arizona Podcast, he sat down with host Rupesh Parbhoo for a conversation about service, leadership, confidence, volunteer culture, and the vision he carries for the year ahead.
+Stefano McGhee is stepping into that challenge. As the International President-Elect of Toastmasters International, he carries more than 20 years of service to the organization and a career in technology leadership as Senior Director of Technology Operations at Harvard Business Publishing. On this episode of the Speak Arizona Podcast, he sat down with [host Rupesh Parbhoo](/news/why-rupesh-hosts-speak-arizona/) for a conversation about service, leadership, confidence, volunteer culture, and the vision he carries for the year ahead.
 
 ---
 

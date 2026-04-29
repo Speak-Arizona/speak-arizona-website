@@ -1,7 +1,7 @@
 ---
-title: "Your Elevator Pitch Is Not a Speech. It's a Conversation Starter."
+title: "Your Elevator Pitch Is a Conversation Starter"
 date: "April 21, 2026"
-excerpt: "Communication coach Eloïse Eonnet reframes the elevator pitch, shares a four-part framework, and live-coaches Tatum O'Kennedy in real time on the Speak Arizona Podcast."
+excerpt: "Communication coach Eloïse Eonnet reframes the elevator pitch, shares a four-part framework, and live-coaches Tatum O'Kennedy in real time."
 tag: "Communication"
 guest: "Eloïse Eonnet"
 youtubeUrl: "https://youtu.be/nYthSrq7-Wc"
@@ -69,7 +69,7 @@ Her advice is to write down your key ideas, not your sentences. Know your bullet
 
 ## Don't Shrink Because Everyone Else Did
 
-Eloïse addressed something that happens constantly at networking events, roundtables, and team introductions. People mimic how the person before them introduced themselves. If the first person gives a flat one-liner, the next person scales back. Then the next. Before long, everyone in the room has made themselves smaller because nobody wanted to be the one who stood out.
+Eloïse addressed something that happens constantly at [networking events](/news/networking-for-introverts/), roundtables, and team introductions. People mimic how the person before them introduced themselves. If the first person gives a flat one-liner, the next person scales back. Then the next. Before long, everyone in the room has made themselves smaller because nobody wanted to be the one who stood out.
 
 Eloïse's response to that was direct. Be generous. Just because the person next to you played it safe doesn't mean you should. Set the example. Put yourself out there. Make eye contact and actually connect to what you're saying. You'll stand out, not because you did too much, but because everyone else did too little.
 
@@ -79,7 +79,7 @@ She also addressed a related challenge that comes up with younger professionals 
 
 ## Executive Presence in Three Words
 
-When Rupesh asked Eloïse to define executive presence, she answered with three words. **Credible. Relatable. Reliable.**
+When Rupesh asked Eloïse to define [executive presence](/news/why-technical-experts-lose-credibility-boardroom-bianca-riemer/), she answered with three words. **Credible. Relatable. Reliable.**
 
 Credible means you have the knowledge and the experience to back up what you're saying. Relatable means you're easy to talk to, you listen, and you're present with the people around you. Reliable means you show up with consistency, and when you say you're going to do something, you do it.
 
