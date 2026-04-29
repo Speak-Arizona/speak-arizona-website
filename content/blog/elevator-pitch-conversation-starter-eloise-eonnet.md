@@ -1,6 +1,6 @@
 ---
 title: "Your Elevator Pitch Is Not a Speech. It's a Conversation Starter."
-date: "April 29, 2026"
+date: "April 21, 2026"
 excerpt: "Communication coach Eloïse Eonnet reframes the elevator pitch, shares a four-part framework, and live-coaches Tatum O'Kennedy in real time on the Speak Arizona Podcast."
 tag: "Communication"
 guest: "Eloïse Eonnet"
