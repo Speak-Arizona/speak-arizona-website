@@ -96,6 +96,8 @@ export default function RootLayout({
               foundingDate: "2024",
               sameAs: [
                 "https://www.youtube.com/@speakarizona",
+                "https://open.spotify.com/show/53gLq1FiWjTgPR4q9n7Kc4",
+                "https://podcasts.apple.com/us/podcast/speak-arizona/id1463493084",
                 "https://www.instagram.com/speakarizona/",
                 "https://www.linkedin.com/showcase/speak-arizona/",
                 "https://www.facebook.com/people/Speak-Arizona/61587110443189/",
