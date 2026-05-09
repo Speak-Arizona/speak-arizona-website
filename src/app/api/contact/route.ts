@@ -1,5 +1,7 @@
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
+
+const RECIPIENT = "podcast@aztoastmasters.org";
 
 const SUBJECT_LABELS: Record<string, string> = {
   general: "General Inquiry",
@@ -10,14 +12,16 @@ const SUBJECT_LABELS: Record<string, string> = {
 
 export async function POST(request: Request) {
   try {
-    if (!process.env.RESEND_API_KEY) {
+    const gmailUser = process.env.GMAIL_USER;
+    const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
+
+    if (!gmailUser || !gmailAppPassword) {
       return NextResponse.json(
         { error: "Contact form is not configured yet." },
         { status: 503 }
       );
     }
 
-    const resend = new Resend(process.env.RESEND_API_KEY);
     const { name, email, subject, message } = await request.json();
 
     if (!name || !email || !message) {
@@ -29,10 +33,17 @@ export async function POST(request: Request) {
 
     const subjectLabel = SUBJECT_LABELS[subject] || "General Inquiry";
 
-    await resend.emails.send({
-      from: "Speak Arizona <onboarding@resend.dev>",
-      to: "podcast@aztoastmasters.org",
-      replyTo: email,
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      auth: { user: gmailUser, pass: gmailAppPassword },
+    });
+
+    await transporter.sendMail({
+      from: `Speak Arizona <${gmailUser}>`,
+      to: RECIPIENT,
+      replyTo: `${name} <${email}>`,
       subject: `[Speak Arizona] ${subjectLabel} from ${name}`,
       text: [
         `Name: ${name}`,

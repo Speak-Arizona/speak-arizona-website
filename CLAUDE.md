@@ -10,7 +10,7 @@ Next.js website for the Speak Arizona podcast — Arizona's public speaking, lea
 - **Package Manager**: pnpm
 - **Content**: Markdown with gray-matter frontmatter
 - **Markdown Rendering**: remark + remark-html
-- **Email**: Resend (contact form)
+- **Email**: Gmail SMTP via nodemailer (contact form)
 - **Hosting**: Vercel (auto-deploys from GitHub push)
 - **Fonts**: Inter (headings), Source Sans 3 (body) — loaded via `next/font/google`
 
@@ -133,9 +133,10 @@ cardImageAlt: "Alt text for card image (optional)"
 
 ## Contact Form
 - **Page**: `/contact` (client component)
-- **API**: POST `/api/contact` — sends email via Resend to `podcast@aztoastmasters.org`
+- **API**: POST `/api/contact` — sends via Gmail SMTP (nodemailer) to `podcast@aztoastmasters.org`
 - **Subjects**: General Inquiry, Guest Request, Sponsorship, Feedback
-- **Env var**: `RESEND_API_KEY` in `.env.local`
+- **Env vars**: `GMAIL_USER` (sender Gmail address) and `GMAIL_APP_PASSWORD` (16-char Gmail App Password) in `.env.local` and Vercel
+- **Reply-To** is set to the form submitter so replies go to the visitor, not to GMAIL_USER
 
 ## YouTube Integration
 - **Component**: `LatestVideo.tsx` — fetches latest uploads from YouTube channel
