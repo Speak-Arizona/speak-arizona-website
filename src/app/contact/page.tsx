@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
 
 const socials = [
@@ -32,15 +29,6 @@ const socials = [
     ),
   },
   {
-    name: "TikTok",
-    href: "https://www.tiktok.com/@speakarizona",
-    icon: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
-      </svg>
-    ),
-  },
-  {
     name: "YouTube",
     href: "https://www.youtube.com/@speakarizona",
     icon: (
@@ -52,53 +40,9 @@ const socials = [
 ];
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState("");
-  const [sending, setSending] = useState(false);
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSending(true);
-    setError("");
-
-    const form = e.currentTarget;
-    const data = {
-      name: (form.elements.namedItem("name") as HTMLInputElement).value,
-      email: (form.elements.namedItem("email") as HTMLInputElement).value,
-      subject: (form.elements.namedItem("subject") as HTMLSelectElement).value,
-      message: (form.elements.namedItem("message") as HTMLTextAreaElement)
-        .value,
-    };
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-
-      if (!res.ok) {
-        const body = await res.json();
-        throw new Error(body.error || "Something went wrong.");
-      }
-
-      setSubmitted(true);
-    } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : "Failed to send. Please try again."
-      );
-    } finally {
-      setSending(false);
-    }
-  }
-
   const followUs = (
     <div>
-      <h3 className="font-heading font-bold text-lg text-text mb-3">
-        Follow Us
-      </h3>
+      <p className="text-text-light text-lg mb-3">or on social media</p>
       <div className="flex gap-3">
         {socials.map((s) => (
           <a
@@ -116,138 +60,31 @@ export default function Contact() {
     </div>
   );
 
-  const formContent = submitted ? (
-    <div className="text-center py-12">
-      <div className="w-16 h-16 bg-yellow rounded-full flex items-center justify-center mx-auto mb-6">
-        <svg
-          className="w-8 h-8 text-black"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M5 13l4 4L19 7"
-          />
-        </svg>
-      </div>
-      <h2 className="font-heading font-bold text-2xl text-black mb-4">
-        Message Sent!
-      </h2>
-      <p className="text-text-light text-lg">
-        Thanks for reaching out. We&apos;ll get back to you soon.
-      </p>
-    </div>
-  ) : (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div>
-        <label
-          htmlFor="name"
-          className="block font-heading font-medium text-text mb-2"
-        >
-          Name
-        </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          required
-          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent transition"
-          placeholder="Your name"
-        />
-      </div>
-
-      <div>
-        <label
-          htmlFor="email"
-          className="block font-heading font-medium text-text mb-2"
-        >
-          Email
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent transition"
-          placeholder="you@example.com"
-        />
-      </div>
-
-      <div>
-        <label
-          htmlFor="subject"
-          className="block font-heading font-medium text-text mb-2"
-        >
-          Subject
-        </label>
-        <select
-          id="subject"
-          name="subject"
-          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent transition"
-        >
-          <option value="general">General Inquiry</option>
-          <option value="guest">I&apos;d Like to Be a Guest</option>
-          <option value="sponsorship">Sponsorship</option>
-          <option value="feedback">Feedback</option>
-        </select>
-      </div>
-
-      <div>
-        <label
-          htmlFor="message"
-          className="block font-heading font-medium text-text mb-2"
-        >
-          Message
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          rows={5}
-          required
-          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent transition resize-none"
-          placeholder="What's on your mind?"
-        />
-      </div>
-
-      {error && (
-        <p className="text-red-600 text-sm text-center">{error}</p>
-      )}
-
-      <button
-        type="submit"
-        disabled={sending}
-        className="w-full bg-blue text-white font-heading font-bold py-3 rounded-full hover:bg-blue-light transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-      >
-        {sending ? "Sending..." : "Send Message"}
-      </button>
-
-      {/* Follow Us — mobile only (below button) */}
-      <div className="md:hidden pt-4">{followUs}</div>
-    </form>
-  );
-
   return (
-    <>
-      <section className="bg-white py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Left — Form */}
-            <div>
-              <h1 className="font-heading font-extrabold text-4xl md:text-5xl text-black mb-3">
-                Get in Touch
-              </h1>
-              <p className="text-text-light text-lg mb-10">
-                Have a question, want to be a guest, or just want to say hello?
-                We&apos;d love to hear from you.
-              </p>
-              {formContent}
-            </div>
+    <section className="bg-white py-20">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          {/* Left — Intro + email */}
+          <div>
+            <h1 className="font-heading font-extrabold text-4xl md:text-5xl text-black mb-3">
+              Get in Touch
+            </h1>
+            <p className="text-text-light text-lg mb-8">
+              Have a question, want to be a guest, or just want to say hello?
+              We&apos;d love to hear from you.
+            </p>
+            <p className="text-text-light text-lg">
+              Reach out at
+              <br />
+              <span className="font-bold text-black">
+                podcast [at] aztoastmasters.org
+              </span>
+            </p>
 
-            {/* Right — Photo + Follow Us (desktop) */}
-            <div className="hidden md:flex flex-col gap-8">
+            <div className="pt-8">{followUs}</div>
+
+            {/* Photo — mobile only (below social icons) */}
+            <div className="md:hidden pt-8">
               <div className="rounded-3xl overflow-hidden shadow-lg">
                 <Image
                   src="/images/speak-arizona-team-work-session-by-marie-feutrier.webp"
@@ -257,11 +94,23 @@ export default function Contact() {
                   className="w-full h-auto"
                 />
               </div>
-              {followUs}
+            </div>
+          </div>
+
+          {/* Right — Photo (desktop) */}
+          <div className="hidden md:block">
+            <div className="rounded-3xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/speak-arizona-team-work-session-by-marie-feutrier.webp"
+                alt="Rupesh Parbhoo, Vincent Feutrier, and Matthew Malan during a Speak Arizona work session"
+                width={800}
+                height={640}
+                className="w-full h-auto"
+              />
             </div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

@@ -10,7 +10,7 @@ Next.js website for the Speak Arizona podcast — Arizona's public speaking, lea
 - **Package Manager**: pnpm
 - **Content**: Markdown with gray-matter frontmatter
 - **Markdown Rendering**: remark + remark-html
-- **Email**: Gmail SMTP via nodemailer (contact form)
+- **Email**: None (contact page shows obfuscated email address; no form, no SMTP)
 - **Hosting**: Vercel (auto-deploys from GitHub push)
 - **Fonts**: Inter (headings), Source Sans 3 (body) — loaded via `next/font/google`
 
@@ -131,12 +131,11 @@ cardImageAlt: "Alt text for card image (optional)"
 - **HEIC conversion**: `sips -s format jpeg source.HEIC --out /tmp/temp.jpg` then `cwebp`
 - **Rotation fix for HEIC**: add `-r 90` to sips if photo comes out sideways
 
-## Contact Form
-- **Page**: `/contact` (client component)
-- **API**: POST `/api/contact` — sends via Gmail SMTP (nodemailer) to `podcast@aztoastmasters.org`
-- **Subjects**: General Inquiry, Guest Request, Sponsorship, Feedback
-- **Env vars**: `GMAIL_USER` (sender Gmail address) and `GMAIL_APP_PASSWORD` (16-char Gmail App Password) in `.env.local` and Vercel
-- **Reply-To** is set to the form submitter so replies go to the visitor, not to GMAIL_USER
+## Contact Page
+- **Page**: `/contact` (server component, no form)
+- Shows obfuscated email: `podcast [at] aztoastmasters.org` to avoid spam scrapers
+- No API route, no SMTP, no env vars
+- Form was removed 2026-05-08 — Marie didn't want her personal Gmail tied to Speak Arizona for SMTP, and no one on the AZ Toastmasters team had time to set up domain-verified email sending
 
 ## YouTube Integration
 - **Component**: `LatestVideo.tsx` — fetches latest uploads from YouTube channel
