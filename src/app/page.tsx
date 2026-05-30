@@ -135,7 +135,7 @@ export default async function Home() {
       { "@type": "Question", name: "Do I need to be a Toastmasters member to listen?", acceptedAnswer: { "@type": "Answer", text: "Not at all. While Speak Arizona is powered by District 3 Toastmasters, the podcast is for everyone — whether you're a seasoned speaker, a first-time presenter, or someone who just wants to communicate better at work and in life." } },
       { "@type": "Question", name: "What topics does Speak Arizona cover?", acceptedAnswer: { "@type": "Answer", text: "Episodes cover public speaking techniques, leadership development, interview and career communication, team management, confidence building, networking strategies, and personal branding through communication." } },
       { "@type": "Question", name: "Can I be a guest on Speak Arizona?", acceptedAnswer: { "@type": "Answer", text: "Yes! Speak Arizona is always looking for guests with compelling stories and expertise in public speaking, leadership, or communication. Reach out through the contact page to pitch your story." } },
-      { "@type": "Question", name: "What is Toastmasters International?", acceptedAnswer: { "@type": "Answer", text: "Toastmasters International is the world's leading organization for developing public speaking and leadership skills. With over 16,800 clubs in 143 countries, Toastmasters provides a supportive environment where members practice communication, build confidence, and grow as leaders. District 3 serves Arizona, New Mexico, and West Texas." } },
+      { "@type": "Question", name: "What is Toastmasters International?", acceptedAnswer: { "@type": "Answer", text: "Toastmasters International is the world's leading organization for developing public speaking and leadership skills. With over 14,000 clubs in more than 140 countries, Toastmasters provides a supportive environment where members practice communication, build confidence, and grow as leaders. District 3 serves Arizona, southern New Mexico, and West Texas." } },
       { "@type": "Question", name: "Is Speak Arizona only about public speaking?", acceptedAnswer: { "@type": "Answer", text: "Not at all. While public speaking is a core topic, Speak Arizona covers a wide range of communication and leadership skills — including how to lead meetings effectively, navigate difficult workplace conversations, build confidence in interviews, network authentically, and develop your personal brand through better communication." } },
       { "@type": "Question", name: "Who are some notable guests on Speak Arizona?", acceptedAnswer: { "@type": "Answer", text: "Speak Arizona has featured World Champions of Public Speaking Darren LaCroix and Mark Brown, leadership coach Kelly Soifer, and William Miller — a 10-year-old world-renowned public speaker on leadership. Every guest brings a unique perspective on what it means to communicate with courage and purpose." } },
     ],
@@ -264,7 +264,7 @@ export default async function Home() {
               No fluff. No corporate jargon. Just courageous conversations that actually make a difference.
             </p>
             <p className="text-black/50 text-sm leading-relaxed">
-              Speak Arizona is powered by District 3 Toastmasters International, serving Arizona, New Mexico, and West Texas.
+              Speak Arizona is powered by District 3 Toastmasters International, serving Arizona, southern New Mexico, and West Texas.
             </p>
           </div>
         </div>
@@ -366,6 +366,14 @@ export default async function Home() {
           </div>
           <p className="text-text-light text-base leading-relaxed mt-8">
             From public speaking tips for your next presentation to leadership strategies for your next promotion, Speak Arizona has an episode for you. New episodes drop every week — subscribe and never miss a conversation that could change the way you communicate.
+          </p>
+          <p className="text-base leading-relaxed mt-4">
+            <Link
+              href="/get-better-at-public-speaking"
+              className="text-blue font-heading font-semibold underline hover:text-blue-light transition-colors"
+            >
+              Ready to do more than listen? Here&apos;s how to actually get better at public speaking &rarr;
+            </Link>
           </p>
         </div>
       </section>
@@ -549,7 +557,7 @@ export default async function Home() {
             { question: "Do I need to be a Toastmasters member to listen?", answer: "Not at all. While Speak Arizona is powered by District 3 Toastmasters, the podcast is for everyone — whether you're a seasoned speaker, a first-time presenter, or someone who just wants to communicate better at work and in life." },
             { question: "What topics does Speak Arizona cover?", answer: "Episodes cover a wide range of topics including public speaking techniques, leadership development, interview and career communication, team management, confidence building, networking strategies, and personal branding through communication." },
             { question: "Can I be a guest on Speak Arizona?", answer: "Yes! Speak Arizona is always looking for guests with compelling stories and expertise in public speaking, leadership, or communication. Reach out through our contact page to pitch your story." },
-            { question: "What is Toastmasters International?", answer: "Toastmasters International is the world's leading organization for developing public speaking and leadership skills. With over 16,800 clubs in 143 countries, Toastmasters provides a supportive environment where members practice communication, build confidence, and grow as leaders. District 3 serves Arizona, New Mexico, and West Texas." },
+            { question: "What is Toastmasters International?", answer: "Toastmasters International is the world's leading organization for developing public speaking and leadership skills. With over 14,000 clubs in more than 140 countries, Toastmasters provides a supportive environment where members practice communication, build confidence, and grow as leaders. District 3 serves Arizona, southern New Mexico, and West Texas." },
             { question: "Is Speak Arizona only about public speaking?", answer: "Not at all. While public speaking is a core topic, Speak Arizona covers a wide range of communication and leadership skills — including how to lead meetings effectively, navigate difficult workplace conversations, build confidence in interviews, network authentically, and develop your personal brand through better communication." },
             { question: "Who are some notable guests on Speak Arizona?", answer: "Speak Arizona has featured World Champions of Public Speaking Darren LaCroix and Mark Brown, leadership coach Kelly Soifer, and William Miller — a 10-year-old world-renowned public speaker on leadership. Every guest brings a unique perspective on what it means to communicate with courage and purpose." },
           ]} />

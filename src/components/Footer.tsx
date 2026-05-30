@@ -43,6 +43,12 @@ export default function Footer() {
                 About
               </Link>
               <Link
+                href="/get-better-at-public-speaking"
+                className="block text-white/70 hover:text-yellow transition-colors"
+              >
+                Improve Your Speaking
+              </Link>
+              <Link
                 href="/news"
                 className="block text-white/70 hover:text-yellow transition-colors"
               >

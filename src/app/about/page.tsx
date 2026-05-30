@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import StickyTeamCards from "@/components/StickyTeamCards";
 import ListenSubscribe from "@/components/ListenSubscribe";
@@ -187,7 +188,7 @@ export default function About() {
                 Through Speak Arizona, Rupesh creates space for meaningful conversations that help people become stronger communicators, more confident leaders, and more authentic versions of themselves.
               </p>
               <p className="text-text-light text-lg leading-relaxed">
-                <a href="/news/why-rupesh-hosts-speak-arizona" className="text-blue underline hover:text-blue-light transition-colors">Read his full story</a>.
+                <Link href="/news/why-rupesh-hosts-speak-arizona" className="text-blue underline hover:text-blue-light transition-colors">Read his full story</Link>.
               </p>
             </div>
             <div className="flex justify-center">
@@ -239,13 +240,13 @@ export default function About() {
             >
               District 3 Toastmasters
             </a>
-            , serving over 125 clubs across Arizona, New Mexico, and West Texas.
+            , serving over 125 clubs across Arizona, southern New Mexico, and West Texas.
             Toastmasters is the world&apos;s leading organization for developing
             public speaking, communication, and leadership skills through a
             supportive, peer-driven community.
           </p>
           <p className="text-text-light text-lg leading-relaxed mb-4">
-            With nearly 100 years of history, Toastmasters has helped millions
+            With more than a century of history, Toastmasters has helped millions
             of people around the world find their voice and grow as leaders.
             District 3 carries that mission forward in the Southwest — and Speak
             Arizona extends it beyond the meeting room to anyone with an
@@ -253,7 +254,15 @@ export default function About() {
           </p>
           <p className="text-text-light text-lg leading-relaxed">
             Whether you&apos;re a Toastmasters member or you&apos;ve never
-            heard of the organization, this podcast is for you.
+            heard of the organization, this podcast is for you — and if it
+            leaves you wanting to{" "}
+            <Link
+              href="/get-better-at-public-speaking"
+              className="text-blue underline hover:text-blue-light transition-colors"
+            >
+              get better at public speaking
+            </Link>
+            , here&apos;s where to start.
           </p>
         </div>
       </section>
