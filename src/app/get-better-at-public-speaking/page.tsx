@@ -20,10 +20,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://speakarizona.com/images/speak-arizona-default-og.webp",
+        url: "https://speakarizona.com/images/get-better-public-speaking-og-by-marie-feutrier.webp",
         width: 1200,
-        height: 800,
-        alt: "Speak Arizona — public speaking and communication podcast",
+        height: 630,
+        alt: "A speaker presenting confidently, captured on camera at a District 3 Toastmasters event in Phoenix",
       },
     ],
   },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "How to Become a Better, More Confident Public Speaker",
     description:
       "What actually makes you a better speaker isn't talent — it's practice, honest feedback, and a room where it's safe to be imperfect. Here's where to start in Arizona.",
-    images: ["https://speakarizona.com/images/speak-arizona-default-og.webp"],
+    images: ["https://speakarizona.com/images/get-better-public-speaking-og-by-marie-feutrier.webp"],
   },
 };
 
