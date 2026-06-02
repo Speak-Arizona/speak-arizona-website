@@ -148,9 +148,9 @@ export default async function BlogPost({
               <p className="text-2xl md:text-3xl font-heading font-bold text-black leading-snug">
                 &ldquo;{post.quote}&rdquo;
               </p>
-              {post.guest && (
+              {(post.quoteAttribution || post.guest) && (
                 <cite className="block mt-4 text-text-light text-base not-italic font-heading">
-                  — {post.guest}
+                  — {post.quoteAttribution || post.guest}
                 </cite>
               )}
             </blockquote>

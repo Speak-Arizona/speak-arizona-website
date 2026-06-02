@@ -21,6 +21,7 @@ export type BlogPost = {
   cardImageAlt?: string;
   youtubeUrl?: string;
   quote?: string;
+  quoteAttribution?: string;
   content: string;
 };
 
@@ -52,6 +53,7 @@ export function getAllPosts(): BlogPostMeta[] {
       cardImageAlt: data.cardImageAlt || undefined,
       youtubeUrl: data.youtubeUrl || undefined,
       quote: data.quote || undefined,
+      quoteAttribution: data.quoteAttribution || undefined,
     };
   });
 
@@ -102,6 +104,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     cardImageAlt: data.cardImageAlt || undefined,
     youtubeUrl: data.youtubeUrl || undefined,
     quote: data.quote || undefined,
+    quoteAttribution: data.quoteAttribution || undefined,
     content,
   };
 }
