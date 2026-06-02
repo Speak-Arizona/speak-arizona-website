@@ -72,7 +72,7 @@ Rupesh loved that framing so much he threatened to trademark it.
 
 ## The Toastmasters Mentor Who Wouldn't Stop Emailing
 
-Matt credits a lot of his transformation to one person: Don Radcliffe.
+Matt credits a lot of his transformation to one person: Don Ratliff.
 
 Matt had been showing up to Toastmasters inconsistently for three years — two weeks on, months off, repeat. Then Don got his email and started reaching out. And reaching out. And reaching out again.
 

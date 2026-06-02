@@ -1,21 +1,21 @@
 ---
 title: "The Mentor Behind the Message: How One Person's Belief Can Change Everything"
 date: "June 1, 2026"
-excerpt: "Don Dousette and Matt Malan join host Rupesh Parbhoo to talk about mentorship, speaking from the heart, and what happens when someone believes in you before you're ready to believe in yourself."
+excerpt: "Don Ratliff and Matt Malan join host Rupesh Parbhoo to talk about mentorship, speaking from the heart, and what happens when someone believes in you before you're ready to believe in yourself."
 tag: "Leadership"
-guest: "Don Dousette & Matthew Malan"
+guest: "Don Ratliff & Matthew Malan"
 youtubeUrl: "https://youtu.be/ju6SVWBUl8s"
 quote: "Sometimes you have to believe in someone else's belief in you until your own belief kicks in."
-quoteAttribution: "Les Brown, as quoted by Don Dousette"
-image: "/images/rupesh-parbhoo-don-dousette-matt-malan-speak-arizona-mentorship-by-marie-feutrier.webp"
-imageAlt: "Rupesh Parbhoo, Don Dousette, and Matt Malan together at the Speak Arizona podcast"
+quoteAttribution: "Les Brown, as quoted by Don Ratliff"
+image: "/images/rupesh-parbhoo-don-ratliff-matt-malan-speak-arizona-mentorship-by-marie-feutrier.webp"
+imageAlt: "Rupesh Parbhoo, Don Ratliff, and Matt Malan together at the Speak Arizona podcast"
 ---
 
 Sometimes the most life-changing words are not spoken from a stage. They are spoken quietly, person to person, when someone looks at you and sees something you cannot yet see in yourself.
 
 That is the story at the center of this episode of Speak Arizona. It is a conversation about mentorship, about speaking from the heart, and about what happens when someone believes in you before you are ready to believe in yourself.
 
-Don Dousette and Matthew Malan sat down with host Rupesh Parbhoo to talk about the relationship that helped Matthew go from not showing up to his first Toastmasters speech to competing at the division level. (You may remember Matt from his own episode on [going from a childhood stutter to the contest stage](/news/from-stutter-to-stage-matt-malan/).) But this story goes deeper than public speaking. It is about how one person's presence, patience, and belief can unlock something that was always there.
+Don Ratliff and Matthew Malan sat down with host Rupesh Parbhoo to talk about the relationship that helped Matthew go from not showing up to his first Toastmasters speech to competing at the division level. (You may remember Matt from his own episode on [going from a childhood stutter to the contest stage](/news/from-stutter-to-stage-matt-malan/).) But this story goes deeper than public speaking. It is about how one person's presence, patience, and belief can unlock something that was always there.
 
 ---
 
@@ -129,9 +129,9 @@ Don's advice is just as clear. Get involved. Find a mentor. And if you see poten
 
 ---
 
-## About Don Dousette and Matt Malan
+## About Don Ratliff and Matt Malan
 
-**Don Dousette** joined Unity Speakers Toastmasters in 2010 after a humbling moment as a best man taught him he never wanted to feel unprepared on his feet again. Encouraged by his own mentor, David Hodish, he competed his way from the club stage all the way to the district contest in 2013. Today he mentors emerging speakers at Maverick Toastmasters, paying forward the belief that was once given to him.
+**Don Ratliff** joined Unity Speakers Toastmasters in 2010 after a humbling moment as a best man taught him he never wanted to feel unprepared on his feet again. Encouraged by his own mentor, David Hodish, he competed his way from the club stage all the way to the district contest in 2013. Today he mentors emerging speakers at Maverick Toastmasters, paying forward the belief that was once given to him.
 
 **Matt Malan** is a member of Dobson Ranch Toastmasters and a Toastmasters International Speech Contest competitor. A lifelong stutterer who once went two years without speaking, he went from missing his very first scheduled speech to competing at the division level — proof of what becomes possible when you keep showing up.
 
