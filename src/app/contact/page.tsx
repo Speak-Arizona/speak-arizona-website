@@ -77,7 +77,7 @@ export default function Contact() {
               Reach out at
               <br />
               <span className="font-bold text-black">
-                podcast [at] aztoastmasters.org
+                podcast@aztoastmasters.org
               </span>
             </p>
 
