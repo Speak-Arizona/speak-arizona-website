@@ -4,6 +4,7 @@ import { Inter, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import LayoutChrome from "@/components/LayoutChrome";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -158,9 +159,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${sourceSans.variable} antialiased`}
       >
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <LayoutChrome header={<Header />} footer={<Footer />}>
+          {children}
+        </LayoutChrome>
       </body>
     </html>
   );
