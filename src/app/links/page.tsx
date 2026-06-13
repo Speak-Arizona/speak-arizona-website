@@ -18,10 +18,9 @@ type LinkItem = {
 
 const links: LinkItem[] = [
   {
-    label: "Download the FREE 10 Confidence Tips",
-    href: "/10-tips-to-look-more-confident-while-speaking.pdf",
+    label: "Get the FREE 10 Confidence Tips",
+    href: "/get-better-at-public-speaking/#get-the-guide",
     primary: true,
-    download: true,
   },
   {
     label: "Watch on YouTube",
