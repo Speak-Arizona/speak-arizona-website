@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Legal",
   robots: { index: false, follow: false },
   alternates: {
-    canonical: "https://speakarizona.com/legal",
+    canonical: "https://speakarizona.com/legal/",
   },
 };
 
@@ -51,7 +51,7 @@ export default function Legal() {
           {/* ── Terms of Use ── */}
           <section id="terms" className="mb-20 scroll-mt-24">
             <h2 className="legal-heading">Terms of Use</h2>
-            <p className="legal-meta">Last Updated: March 14, 2026</p>
+            <p className="legal-meta">Last Updated: July 6, 2026</p>
 
             <h3 className="legal-subheading">Acceptance of Terms</h3>
             <p className="legal-text">
@@ -64,7 +64,7 @@ export default function Legal() {
             <h3 className="legal-subheading">Website Use</h3>
             <p className="legal-text">
               This website is operated by the Speak Arizona podcast team,
-              powered by District 3 Toastmasters International. It is provided
+              powered by District 3 Toastmasters. It is provided
               for informational and promotional purposes related to the Speak
               Arizona podcast. Under this license you may not:
             </p>
@@ -89,8 +89,7 @@ export default function Legal() {
               Podcast episodes, show notes, and related materials are provided
               for personal, non-commercial use. Opinions expressed by guests on
               the podcast are their own and do not necessarily reflect the views
-              of Speak Arizona, its team, or District 3 Toastmasters
-              International.
+              of Speak Arizona, its team, or District 3 Toastmasters.
             </p>
 
             <h3 className="legal-subheading">Website Content</h3>
@@ -111,25 +110,27 @@ export default function Legal() {
               terms and privacy policies.
             </p>
 
-            <h3 className="legal-subheading">Contact Form</h3>
+            <h3 className="legal-subheading">Email Signup</h3>
             <ul className="legal-list">
               <li>
-                Information submitted through the contact form is used solely
-                for communication related to the podcast
+                When you request our free public speaking guide, the name and
+                email address you submit are used to deliver the guide and to
+                send occasional tips and updates from Speak Arizona
               </li>
               <li>
-                Submission of a guest inquiry does not guarantee a podcast
-                appearance
+                Signup uses confirmed opt-in: you receive the guide only after
+                confirming your email address
               </li>
               <li>
-                We respond to inquiries as time permits; response times may vary
+                You can unsubscribe at any time using the link in any email we
+                send
               </li>
             </ul>
 
             <h3 className="legal-subheading">Indemnification</h3>
             <p className="legal-text">
               You agree to indemnify, defend, and hold harmless Speak Arizona,
-              its team members, and District 3 Toastmasters International from
+              its team members, and District 3 Toastmasters from
               any claims, damages, losses, or expenses arising from your use of
               this website or violation of these terms.
             </p>
@@ -158,7 +159,7 @@ export default function Legal() {
           {/* ── Privacy Policy ── */}
           <section id="privacy" className="mb-20 scroll-mt-24">
             <h2 className="legal-heading">Privacy Policy</h2>
-            <p className="legal-meta">Effective Date: March 14, 2026</p>
+            <p className="legal-meta">Effective Date: July 6, 2026</p>
             <p className="legal-text">
               This privacy policy describes how Speak Arizona (&quot;we,&quot;
               &quot;us,&quot; or &quot;our&quot;) collects, uses, and protects
@@ -168,34 +169,56 @@ export default function Legal() {
             <h3 className="legal-subheading">Information Collection</h3>
 
             <h4 className="legal-sub-subheading">Information You Provide</h4>
-            <ul className="legal-list">
-              <li>
-                Name and email address submitted through the contact form
-              </li>
-              <li>Subject selection and message content from inquiries</li>
-            </ul>
+            <p className="legal-text">
+              If you sign up for our free public speaking guide, you provide your
+              name and email address through our email signup form. This form is
+              powered by AWeber, our email service provider, and the information
+              you submit is stored and processed by AWeber on our behalf. We use
+              it to deliver the guide and to send occasional tips and updates
+              from Speak Arizona. Signup uses confirmed opt-in, and you can
+              unsubscribe at any time.
+            </p>
 
             <h4 className="legal-sub-subheading">
               Information Collected Automatically
             </h4>
             <p className="legal-text">
-              Our website currently does not use analytics tracking. However,
-              third-party services embedded on this site may collect data
-              independently:
+              We use Google Analytics 4 to understand how visitors find and use
+              our website. Google Analytics collects usage data such as the
+              pages you view, how you arrived at the site, approximate location,
+              and general device and browser information, and it sets
+              first-party cookies (for example, <code>_ga</code>) to distinguish
+              visitors. This data helps us improve our content and is used in
+              aggregate; we do not use it to identify you personally. You can
+              learn more in{" "}
+              <a
+                href="https://policies.google.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue hover:underline"
+              >
+                Google&apos;s Privacy Policy
+              </a>{" "}
+              and opt out of Google Analytics across all sites using the{" "}
+              <a
+                href="https://tools.google.com/dlpage/gaoptout"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue hover:underline"
+              >
+                Google Analytics Opt-out Browser Add-on
+              </a>
+              .
+            </p>
+            <p className="legal-text">
+              Other third-party services may also collect data independently:
             </p>
             <ul className="legal-list">
               <li>
                 <strong>YouTube embeds:</strong> When you watch embedded podcast
                 episodes, YouTube (Google) may collect usage data, set cookies,
-                and track viewing activity in accordance with{" "}
-                <a
-                  href="https://policies.google.com/privacy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue hover:underline"
-                >
-                  Google&apos;s Privacy Policy
-                </a>
+                and track viewing activity in accordance with Google&apos;s
+                Privacy Policy
               </li>
               <li>
                 <strong>Vercel hosting:</strong> Our hosting provider may
@@ -206,9 +229,15 @@ export default function Legal() {
 
             <h3 className="legal-subheading">How We Use Your Information</h3>
             <ul className="legal-list">
-              <li>Respond to inquiries and guest requests</li>
-              <li>Communicate about the podcast and upcoming episodes</li>
-              <li>Improve our website and content</li>
+              <li>Deliver the free guide you requested</li>
+              <li>
+                Send occasional tips and updates about the podcast and upcoming
+                episodes
+              </li>
+              <li>
+                Understand how visitors use the site so we can improve our
+                content
+              </li>
             </ul>
 
             <h3 className="legal-subheading">Information Sharing</h3>
@@ -217,9 +246,13 @@ export default function Legal() {
               parties.
             </p>
             <p className="legal-text">
-              Information submitted through the contact form may be shared among
-              Speak Arizona team members for the purpose of responding to your
-              inquiry. We may also share information with legal authorities when
+              We share information only with the service providers that operate
+              this site on our behalf: AWeber (email delivery for the guide
+              signup) and Google Analytics (website usage measurement), each
+              acting under its own privacy policy. The name and email you submit
+              through the guide signup may also be used by District 3
+              Toastmasters to share information about Toastmasters clubs and
+              events. We may also share information with legal authorities when
               required by law.
             </p>
 
@@ -229,6 +262,12 @@ export default function Legal() {
               third-party services, each governed by their own privacy policies:
             </p>
             <ul className="legal-list">
+              <li>
+                <strong>Google Analytics:</strong> Website usage measurement
+              </li>
+              <li>
+                <strong>AWeber:</strong> Email delivery for the guide signup
+              </li>
               <li>
                 <strong>YouTube:</strong> Podcast episode playback and video
                 content
@@ -255,9 +294,12 @@ export default function Legal() {
 
             <h3 className="legal-subheading">Cookies</h3>
             <p className="legal-text">
-              Our website itself does not set cookies. However, embedded YouTube
-              videos may set third-party cookies from Google. You can manage
-              cookie preferences through your browser settings.
+              Our website uses first-party cookies set by Google Analytics (for
+              example, <code>_ga</code> and <code>_ga_*</code>) to measure site
+              usage. Embedded YouTube videos may also set third-party cookies
+              from Google when you play them. You can manage or block cookies
+              through your browser settings, and you can opt out of Google
+              Analytics using the browser add-on linked above.
             </p>
 
             <h3 className="legal-subheading">Data Security</h3>
@@ -277,7 +319,7 @@ export default function Legal() {
             </ul>
             <p className="legal-text">
               To exercise these rights, contact us through the{" "}
-              <a href="/contact" className="text-blue hover:underline">
+              <a href="/contact/" className="text-blue hover:underline">
                 contact page
               </a>
               .
@@ -372,7 +414,7 @@ export default function Legal() {
 
             <h3 className="legal-subheading">Toastmasters International</h3>
             <p className="legal-text">
-              Speak Arizona is powered by District 3 Toastmasters International.
+              Speak Arizona is powered by District 3 Toastmasters.
               The Toastmasters International name and logo are trademarks of
               Toastmasters International and are used with permission. All
               Toastmasters-related trademarks remain the property of
@@ -383,7 +425,7 @@ export default function Legal() {
             <p className="legal-text">
               For copyright questions or permission requests, contact us through
               the{" "}
-              <a href="/contact" className="text-blue hover:underline">
+              <a href="/contact/" className="text-blue hover:underline">
                 contact page
               </a>
               .

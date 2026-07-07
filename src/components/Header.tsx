@@ -1,12 +1,7 @@
-"use client";
-
 import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
+import MobileMenu from "@/components/MobileMenu";
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <header className="bg-white sticky top-0 z-50 border-b border-gray-100">
       {/* Top banner */}
@@ -34,6 +29,14 @@ export default function Header() {
           </a>
         </div>
       </div>
+
+      {/* Mobile nav row */}
+      <nav className="md:hidden flex max-w-6xl mx-auto px-6 py-4 items-center justify-between">
+        <Link href="/" className="font-heading text-black font-black text-xl uppercase" style={{ letterSpacing: "-0.06em" }}>
+          SPEAK ARIZONA
+        </Link>
+        <MobileMenu variant="dark" />
+      </nav>
 
       <nav className="hidden md:flex max-w-6xl mx-auto px-6 py-4 items-center justify-between">
         <Link href="/" className="font-heading text-black font-black text-xl uppercase" style={{ letterSpacing: "-0.06em" }}>

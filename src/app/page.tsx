@@ -1,11 +1,17 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import MobileMenu from "@/components/MobileMenu";
 import LatestVideo from "@/components/LatestVideo";
 import EpisodeCarousel from "@/components/EpisodeCarousel";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import FaqAccordion from "@/components/FaqAccordion";
 import ListenSubscribe from "@/components/ListenSubscribe";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://speakarizona.com/",
+  },
+};
 
 const YOUTUBE_CHANNEL_ID = "UCZG0h9pQsTHWuo2Z_EkCDJA";
 const UPLOADS_PLAYLIST_ID = "UUZG0h9pQsTHWuo2Z_EkCDJA"; // UC → UU
@@ -128,7 +134,7 @@ export default async function Home() {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: [
-      { "@type": "Question", name: "What is Speak Arizona?", acceptedAnswer: { "@type": "Answer", text: "Speak Arizona is a weekly podcast about public speaking, leadership, and communication skills. Hosted by Rupesh Parbhoo and powered by District 3 Toastmasters International, each episode features courageous conversations with world-class speakers, authors, coaches, and leaders." } },
+      { "@type": "Question", name: "What is Speak Arizona?", acceptedAnswer: { "@type": "Answer", text: "Speak Arizona is a weekly podcast about public speaking, leadership, and communication skills. Hosted by Rupesh Parbhoo and powered by District 3 Toastmasters, each episode features courageous conversations with world-class speakers, authors, coaches, and leaders." } },
       { "@type": "Question", name: "Who hosts the Speak Arizona podcast?", acceptedAnswer: { "@type": "Answer", text: "Speak Arizona is hosted by Rupesh Parbhoo, an Arizona-based speaker and communication coach. Rupesh is a Toastmasters leader who believes that the best conversations happen when people are willing to be courageous." } },
       { "@type": "Question", name: "How often are new episodes released?", acceptedAnswer: { "@type": "Answer", text: "New episodes are released every week. You can subscribe on Spotify, Apple Podcasts, or YouTube to get notified when a new episode drops." } },
       { "@type": "Question", name: "Where can I listen to Speak Arizona?", acceptedAnswer: { "@type": "Answer", text: "Speak Arizona is available on Spotify, Apple Podcasts, YouTube, and most major podcast platforms. You can also watch full video episodes on the Speak Arizona YouTube channel." } },
@@ -195,16 +201,6 @@ export default async function Home() {
             priority
             className="w-full h-auto"
           />
-          <div className="absolute top-6 left-0 right-0 px-6 flex items-center justify-between">
-            <Link
-              href="/"
-              className="font-heading font-black text-white text-2xl uppercase"
-              style={{ letterSpacing: "-0.06em" }}
-            >
-              SPEAK ARIZONA
-            </Link>
-            <MobileMenu />
-          </div>
         </div>
         {/* Mobile tagline */}
         <div className="md:hidden bg-white px-6 py-8 text-center">
@@ -264,7 +260,7 @@ export default async function Home() {
               No fluff. No corporate jargon. Just courageous conversations that actually make a difference.
             </p>
             <p className="text-black/50 text-sm leading-relaxed">
-              Speak Arizona is powered by District 3 Toastmasters International, serving Arizona, southern New Mexico, and West Texas.
+              Speak Arizona is powered by District 3 Toastmasters, serving Arizona, southern New Mexico, and West Texas.
             </p>
           </div>
         </div>
@@ -550,7 +546,7 @@ export default async function Home() {
             </h2>
           </AnimateOnScroll>
           <FaqAccordion items={[
-            { question: "What is Speak Arizona?", answer: "Speak Arizona is a weekly podcast about public speaking, leadership, and communication skills. Hosted by Rupesh Parbhoo and powered by District 3 Toastmasters International, each episode features courageous conversations with world-class speakers, authors, coaches, and leaders." },
+            { question: "What is Speak Arizona?", answer: "Speak Arizona is a weekly podcast about public speaking, leadership, and communication skills. Hosted by Rupesh Parbhoo and powered by District 3 Toastmasters, each episode features courageous conversations with world-class speakers, authors, coaches, and leaders." },
             { question: "Who hosts the Speak Arizona podcast?", answer: "Speak Arizona is hosted by Rupesh Parbhoo, an Arizona-based speaker and communication coach. Rupesh is a Toastmasters leader who believes that the best conversations happen when people are willing to be courageous." },
             { question: "How often are new episodes released?", answer: "New episodes are released every week. You can subscribe on Spotify, Apple Podcasts, or YouTube to get notified when a new episode drops." },
             { question: "Where can I listen to Speak Arizona?", answer: "Speak Arizona is available on Spotify, Apple Podcasts, YouTube, and most major podcast platforms. You can also watch full video episodes on the Speak Arizona YouTube channel." },

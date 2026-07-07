@@ -1,16 +1,51 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export default function MobileMenu() {
+type MobileMenuProps = {
+  variant?: "light" | "dark";
+};
+
+export default function MobileMenu({ variant = "dark" }: MobileMenuProps) {
   const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") setOpen(false);
+    }
+    function onPointerDown(e: PointerEvent) {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(e.target as Node)
+      ) {
+        setOpen(false);
+      }
+    }
+
+    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("pointerdown", onPointerDown);
+    };
+  }, [open]);
+
+  const iconColor = variant === "light" ? "text-white" : "text-text";
 
   return (
-    <div className="relative">
-      <button onClick={() => setOpen(!open)} aria-label="Toggle menu">
+    <div className="relative" ref={containerRef}>
+      <button
+        onClick={() => setOpen(!open)}
+        aria-label="Toggle menu"
+        aria-expanded={open}
+        aria-controls="mobile-menu"
+      >
         <svg
-          className="w-7 h-7 text-white"
+          className={`w-7 h-7 ${iconColor}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -34,7 +69,10 @@ export default function MobileMenu() {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-10 bg-white rounded-2xl shadow-lg py-4 px-6 space-y-3 min-w-[160px] z-50">
+        <div
+          id="mobile-menu"
+          className="absolute right-0 top-10 bg-white rounded-2xl shadow-lg py-4 px-6 space-y-3 min-w-[160px] z-50"
+        >
           <Link
             href="/about"
             className="block font-heading font-medium text-text hover:text-black"

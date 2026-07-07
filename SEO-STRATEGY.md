@@ -1,7 +1,7 @@
 # Speak Arizona — SEO Strategy & Growth Plan
 
 ## Overview
-Speak Arizona is a weekly podcast about public speaking, leadership, and communication hosted by Rupesh Parbhoo. Powered by District 3 Toastmasters International (Arizona, New Mexico, West Texas).
+Speak Arizona is a weekly podcast about public speaking, leadership, and communication hosted by Rupesh Parbhoo. Powered by District 3 Toastmasters (Arizona, New Mexico, West Texas).
 
 **Target Keywords (Long-term):**
 - "public speaking podcast"

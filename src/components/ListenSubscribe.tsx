@@ -4,14 +4,7 @@ export default function ListenSubscribe() {
       <p className="font-heading font-bold text-black mb-4">
         Listen, watch, or subscribe:
       </p>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "12px",
-        }}
-        className="md:grid-cols-3"
-      >
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
         <a
           href="https://open.spotify.com/show/53gLq1FiWjTgPR4q9n7Kc4"
           target="_blank"

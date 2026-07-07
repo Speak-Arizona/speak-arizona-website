@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   description:
     "How Speak Arizona became Arizona's only podcast dedicated to public speaking, communication, and leadership. Meet host Rupesh Parbhoo and the team powered by District 3 Toastmasters.",
   alternates: {
-    canonical: "https://speakarizona.com/about",
+    canonical: "https://speakarizona.com/about/",
   },
   openGraph: {
     title: "The Story Behind Arizona's Public Speaking Podcast",
     description:
       "How Speak Arizona became Arizona's only podcast dedicated to public speaking, communication, and leadership. Meet host Rupesh Parbhoo and the team.",
-    url: "https://speakarizona.com/about",
+    url: "https://speakarizona.com/about/",
     siteName: "Speak Arizona",
     type: "website",
     images: [

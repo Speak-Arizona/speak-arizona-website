@@ -1,7 +1,7 @@
 # Speak Arizona Website
 
 ## Project Overview
-Next.js website for the Speak Arizona podcast — Arizona's public speaking, leadership, and communication podcast hosted by Rupesh Parbhoo. Powered by District 3 Toastmasters International.
+Next.js website for the Speak Arizona podcast — Arizona's public speaking, leadership, and communication podcast hosted by Rupesh Parbhoo. Powered by District 3 Toastmasters.
 
 ## Tech Stack
 - **Framework**: Next.js 16 (App Router)

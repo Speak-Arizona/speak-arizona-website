@@ -8,7 +8,15 @@ export const metadata: Metadata = {
   description:
     "Tips, stories, and strategies on public speaking, communication skills, and leadership from the Speak Arizona podcast.",
   alternates: {
-    canonical: "https://speakarizona.com/news",
+    canonical: "https://speakarizona.com/news/",
+  },
+  openGraph: {
+    title: "Public Speaking & Leadership News",
+    description:
+      "Tips, stories, and strategies on public speaking, communication skills, and leadership from the Speak Arizona podcast.",
+    url: "https://speakarizona.com/news/",
+    siteName: "Speak Arizona",
+    type: "website",
   },
 };
 
@@ -23,8 +31,8 @@ export default function Blog() {
       {featuredPost ? (
         <section className="py-8 md:py-12 pb-16 md:pb-12" style={{ backgroundImage: "url('/images/gradient-square.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
           <div className="max-w-6xl mx-auto px-6">
-            <h1 className="font-heading font-extrabold text-4xl md:text-5xl text-white mb-8 md:hidden">
-              News
+            <h1 className="font-heading font-extrabold text-4xl md:text-5xl text-white mb-8">
+              Public Speaking &amp; Leadership News
             </h1>
             <Link href={`/news/${featuredPost.slug}`} className="block group">
               <div className="grid md:grid-cols-2 gap-8 md:items-center">
@@ -40,9 +48,6 @@ export default function Blog() {
                   </div>
                 )}
                 <div>
-                  <h1 className="font-heading font-extrabold text-4xl md:text-5xl text-white mb-8 hidden md:block">
-                    News
-                  </h1>
                   <div className="flex items-center gap-3 mb-4">
                     <span className="bg-yellow text-black text-xs font-heading font-bold px-3 py-1 rounded-full">
                       {featuredPost.tag}
@@ -69,7 +74,7 @@ export default function Blog() {
         <section className="py-16 md:py-24" style={{ backgroundImage: "url('/images/gradient-square.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>
           <div className="max-w-6xl mx-auto px-6 text-center text-white">
             <h1 className="font-heading font-extrabold text-4xl md:text-5xl mb-6">
-              News
+              Public Speaking &amp; Leadership News
             </h1>
             <p className="text-white/80 text-lg">No posts yet. Stay tuned!</p>
           </div>

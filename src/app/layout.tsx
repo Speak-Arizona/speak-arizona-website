@@ -19,6 +19,7 @@ const sourceSans = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://speakarizona.com"),
   verification: {
     google: "NKTRu2mFMXokSvQ0Nfvo6nntxWnVnq4KD2VumEeEhHk",
   },
@@ -69,9 +70,6 @@ export const metadata: Metadata = {
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
     apple: "/apple-touch-icon.png",
-  },
-  alternates: {
-    canonical: "https://speakarizona.com",
   },
 };
 
@@ -124,7 +122,7 @@ export default function RootLayout({
               },
               publisher: {
                 "@type": "Organization",
-                name: "District 3 Toastmasters International",
+                name: "District 3 Toastmasters",
                 url: "https://d3toastmasters.org",
               },
               inLanguage: "en-US",
