@@ -27,6 +27,39 @@ export type BlogPost = {
 
 export type BlogPostMeta = Omit<BlogPost, "content">;
 
+// Required frontmatter fields — every consumer assumes these are present and
+// non-empty (news listing, post header, sitemap, schema).
+const REQUIRED_FIELDS = ["title", "date", "excerpt", "tag"] as const;
+
+// Validate a post's frontmatter at build time and fail loudly (naming the file
+// and field) rather than shipping a silent "" default or crashing later on
+// `new Date("").toISOString()`. Returns the validated required fields.
+function validateFrontmatter(
+  data: Record<string, unknown>,
+  filename: string
+): { title: string; date: string; excerpt: string; tag: string } {
+  for (const field of REQUIRED_FIELDS) {
+    const value = data[field];
+    if (typeof value !== "string" || value.trim() === "") {
+      throw new Error(
+        `Blog post "${filename}": missing or empty required frontmatter field "${field}".`
+      );
+    }
+  }
+  const date = data.date as string;
+  if (Number.isNaN(new Date(date).getTime())) {
+    throw new Error(
+      `Blog post "${filename}": frontmatter "date" is not a valid date (got "${date}").`
+    );
+  }
+  return {
+    title: data.title as string,
+    date,
+    excerpt: data.excerpt as string,
+    tag: data.tag as string,
+  };
+}
+
 export function getAllPosts(): BlogPostMeta[] {
   if (!fs.existsSync(blogDir)) return [];
 
@@ -37,13 +70,14 @@ export function getAllPosts(): BlogPostMeta[] {
     const filePath = path.join(blogDir, filename);
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data } = matter(fileContents);
+    const { title, date, excerpt, tag } = validateFrontmatter(data, filename);
 
     return {
       slug,
-      title: data.title || "",
-      date: data.date || "",
-      excerpt: data.excerpt || "",
-      tag: data.tag || "",
+      title,
+      date,
+      excerpt,
+      tag,
       guest: data.guest || undefined,
       image: data.image || undefined,
       imageAlt: data.imageAlt || undefined,
@@ -79,8 +113,12 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
 
   const fileContents = fs.readFileSync(filePath, "utf8");
   const { data, content: rawContent } = matter(fileContents);
+  const { title, date, excerpt, tag } = validateFrontmatter(data, `${slug}.md`);
 
-  const processed = await remark().use(html, { sanitize: false }).process(rawContent);
+  // remark-html sanitizes by default (strips <script>, raw HTML, etc.). We keep
+  // that on: post bodies are trusted prose today, but the default guards against
+  // stored XSS the day a guest post or pasted embed lands in content/blog.
+  const processed = await remark().use(html).process(rawContent);
   // Add target="_blank" and rel="noopener noreferrer" to external links
   const content = processed
     .toString()
@@ -91,10 +129,10 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
 
   return {
     slug,
-    title: data.title || "",
-    date: data.date || "",
-    excerpt: data.excerpt || "",
-    tag: data.tag || "",
+    title,
+    date,
+    excerpt,
+    tag,
     guest: data.guest || undefined,
     image: data.image || undefined,
     imageAlt: data.imageAlt || undefined,

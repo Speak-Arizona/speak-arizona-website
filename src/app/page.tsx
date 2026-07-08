@@ -6,6 +6,7 @@ import EpisodeCarousel from "@/components/EpisodeCarousel";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import FaqAccordion from "@/components/FaqAccordion";
 import ListenSubscribe from "@/components/ListenSubscribe";
+import { jsonLd } from "@/lib/jsonLd";
 
 export const metadata: Metadata = {
   alternates: {
@@ -50,6 +51,14 @@ async function getVideos(): Promise<{ latest: Video | null; recent: Video[] }> {
         { next: { revalidate: 3600 } }
       );
       const listData = await listRes.json();
+      // Quota-exhausted / invalid-key responses come back as HTTP 403 with a JSON
+      // { error } body (not a thrown exception), so guard explicitly and fall
+      // through to the RSS feed instead of silently returning zero videos.
+      if (!listRes.ok || listData.error) {
+        throw new Error(
+          listData.error?.message || `YouTube API responded ${listRes.status}`
+        );
+      }
       const items: YouTubePlaylistItem[] = listData.items || [];
 
       // Get video IDs to check duration (filter Shorts)
@@ -82,10 +91,15 @@ async function getVideos(): Promise<{ latest: Video | null; recent: Video[] }> {
         });
       }
 
-      return {
-        latest: fullVideos[0] || null,
-        recent: fullVideos.slice(1, 7),
-      };
+      // Only trust the API path if it actually produced videos; an empty result
+      // (e.g. every item filtered as a Short, or a malformed payload) falls
+      // through to the RSS feed rather than blanking the Latest Episode section.
+      if (fullVideos.length > 0) {
+        return {
+          latest: fullVideos[0],
+          recent: fullVideos.slice(1, 7),
+        };
+      }
     } catch {
       // Fall through to RSS fallback
     }
@@ -151,7 +165,7 @@ export default async function Home() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema) }}
       />
       {/* Hero */}
       <section className="overflow-hidden">

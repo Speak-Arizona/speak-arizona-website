@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import StickyTeamCards from "@/components/StickyTeamCards";
 import ListenSubscribe from "@/components/ListenSubscribe";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
+import { jsonLd } from "@/lib/jsonLd";
 
 export const metadata: Metadata = {
   title: "The Story Behind Arizona's Public Speaking Podcast",
@@ -63,7 +64,7 @@ export default function About() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(personSchema) }}
       />
       {/* Hero */}
       <section className="py-16 md:py-24" style={{ backgroundImage: "url('/images/gradient-square.webp')", backgroundSize: "cover", backgroundPosition: "center" }}>

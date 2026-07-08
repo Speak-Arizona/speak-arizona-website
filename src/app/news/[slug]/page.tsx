@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getAllSlugs, getAllPosts, getPostBySlug } from "@/lib/blog";
 import ListenSubscribe from "@/components/ListenSubscribe";
+import { jsonLd } from "@/lib/jsonLd";
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -102,7 +103,7 @@ export default async function BlogPost({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(articleSchema) }}
       />
 
       {/* Hero */}

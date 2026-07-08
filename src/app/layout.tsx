@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LayoutChrome from "@/components/LayoutChrome";
+import { jsonLd } from "@/lib/jsonLd";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -84,7 +85,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
+            __html: jsonLd({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Speak Arizona",
@@ -108,7 +109,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
+            __html: jsonLd({
               "@context": "https://schema.org",
               "@type": "PodcastSeries",
               name: "Speak Arizona",
