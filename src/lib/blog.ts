@@ -5,6 +5,84 @@ import { remark } from "remark";
 import html from "remark-html";
 
 const blogDir = path.join(process.cwd(), "content/blog");
+const publicDir = path.join(process.cwd(), "public");
+
+// Intrinsic dimensions read once per file at build time, then memoized so a
+// build that renders 19 posts never re-reads the same image header.
+const imageDimensionCache = new Map<
+  string,
+  { width: number; height: number } | null
+>();
+
+// Read a WebP's intrinsic pixel dimensions straight from its header (no image
+// library dependency). Handles the three chunk types cwebp can emit: VP8
+// (lossy), VP8L (lossless), VP8X (extended/animated). Returns null for anything
+// it can't confidently parse so the caller falls back to omitting dimensions.
+function getWebpDimensions(
+  absPath: string
+): { width: number; height: number } | null {
+  if (imageDimensionCache.has(absPath)) return imageDimensionCache.get(absPath)!;
+
+  let result: { width: number; height: number } | null = null;
+  try {
+    const buf = fs.readFileSync(absPath);
+    if (
+      buf.length >= 30 &&
+      buf.toString("ascii", 0, 4) === "RIFF" &&
+      buf.toString("ascii", 8, 12) === "WEBP"
+    ) {
+      const format = buf.toString("ascii", 12, 16);
+      if (format === "VP8 ") {
+        // Lossy: 14-bit width/height at offset 26, little-endian.
+        const width = (buf[26] | (buf[27] << 8)) & 0x3fff;
+        const height = (buf[28] | (buf[29] << 8)) & 0x3fff;
+        result = { width, height };
+      } else if (format === "VP8L") {
+        // Lossless: 14-bit (width-1)/(height-1) packed across 4 bytes at 21.
+        const b0 = buf[21];
+        const b1 = buf[22];
+        const b2 = buf[23];
+        const b3 = buf[24];
+        const width = 1 + (((b1 & 0x3f) << 8) | b0);
+        const height = 1 + (((b3 & 0x0f) << 10) | (b2 << 2) | ((b1 & 0xc0) >> 6));
+        result = { width, height };
+      } else if (format === "VP8X") {
+        // Extended: 24-bit (canvas-1) dimensions at offset 24, little-endian.
+        const width = 1 + (buf[24] | (buf[25] << 8) | (buf[26] << 16));
+        const height = 1 + (buf[27] | (buf[28] << 8) | (buf[29] << 16));
+        result = { width, height };
+      }
+    }
+  } catch {
+    result = null;
+  }
+
+  imageDimensionCache.set(absPath, result);
+  return result;
+}
+
+// Post-process the rendered markdown <img> tags: inject loading="lazy" and
+// decoding="async" (below-the-fold images no longer download eagerly) plus the
+// real intrinsic width/height read at build time, which gives the browser an
+// aspect ratio to reserve space and eliminates layout shift as images load.
+// Idempotent: skips attributes that are already present. Width/height are only
+// added for local /images/* assets we can measure; external images still get
+// the lazy/async hints.
+function enhanceBlogImages(htmlContent: string): string {
+  return htmlContent.replace(/<img\b([^>]*)>/g, (_full, attrs: string) => {
+    let extra = "";
+
+    const srcMatch = attrs.match(/\bsrc="([^"]+)"/);
+    if (srcMatch && srcMatch[1].startsWith("/images/") && !/\bwidth=/.test(attrs)) {
+      const dims = getWebpDimensions(path.join(publicDir, srcMatch[1]));
+      if (dims) extra += ` width="${dims.width}" height="${dims.height}"`;
+    }
+    if (!/\bloading=/.test(attrs)) extra += ` loading="lazy"`;
+    if (!/\bdecoding=/.test(attrs)) extra += ` decoding="async"`;
+
+    return `<img${attrs}${extra}>`;
+  });
+}
 
 export type BlogPost = {
   slug: string;
@@ -119,13 +197,16 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   // that on: post bodies are trusted prose today, but the default guards against
   // stored XSS the day a guest post or pasted embed lands in content/blog.
   const processed = await remark().use(html).process(rawContent);
-  // Add target="_blank" and rel="noopener noreferrer" to external links
-  const content = processed
-    .toString()
-    .replace(
-      /<a href="(https?:\/\/[^"]+)">/g,
-      '<a href="$1" target="_blank" rel="noopener noreferrer">'
-    );
+  // Add target="_blank" and rel="noopener noreferrer" to external links, then
+  // inject lazy-loading + intrinsic dimensions on images (CLS + eager-load fix).
+  const content = enhanceBlogImages(
+    processed
+      .toString()
+      .replace(
+        /<a href="(https?:\/\/[^"]+)">/g,
+        '<a href="$1" target="_blank" rel="noopener noreferrer">'
+      )
+  );
 
   return {
     slug,

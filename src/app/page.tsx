@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 import Link from "next/link";
 import LatestVideo from "@/components/LatestVideo";
 import EpisodeCarousel from "@/components/EpisodeCarousel";
@@ -144,6 +144,29 @@ async function getVideos(): Promise<{ latest: Video | null; recent: Video[] }> {
 export default async function Home() {
   const { latest, recent } = await getVideos();
 
+  // Art-directed hero preloads. Both hero <Image>s below drop `priority` (each
+  // is display:none at the other breakpoint, so lazy-loading keeps phones from
+  // downloading the desktop hero and vice versa). We then emit ONE
+  // media-conditioned <link rel="preload"> per hero, built from getImageProps
+  // with the SAME src/width/height/sizes the <Image> renders, so the correct
+  // hero is still preloaded at high priority for LCP — but only on the device
+  // that actually paints it. [audit finding #9]
+  const heroAlt = "Rupesh Parbhoo, host of Speak Arizona podcast";
+  const { props: desktopHeroProps } = getImageProps({
+    alt: heroAlt,
+    src: "/images/speak-arizona-podcast-public-speaking-leadership-by-marie-feutrier.webp",
+    width: 1400,
+    height: 627,
+    sizes: "100vw",
+  });
+  const { props: mobileHeroProps } = getImageProps({
+    alt: heroAlt,
+    src: "/images/speak-arizona-podcast-mobile-by-marie-feutrier.webp",
+    width: 800,
+    height: 900,
+    sizes: "100vw",
+  });
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -167,16 +190,31 @@ export default async function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema) }}
       />
+      {/* Art-directed hero preloads — each fetches only at its own breakpoint */}
+      <link
+        rel="preload"
+        as="image"
+        media="(min-width: 768px)"
+        imageSrcSet={desktopHeroProps.srcSet}
+        imageSizes={desktopHeroProps.sizes}
+      />
+      <link
+        rel="preload"
+        as="image"
+        media="(max-width: 767px)"
+        imageSrcSet={mobileHeroProps.srcSet}
+        imageSizes={mobileHeroProps.sizes}
+      />
       {/* Hero */}
       <section className="overflow-hidden">
         {/* Desktop hero with overlay */}
         <div className="hidden md:block relative">
           <Image
             src="/images/speak-arizona-podcast-public-speaking-leadership-by-marie-feutrier.webp"
-            alt="Rupesh Parbhoo, host of Speak Arizona podcast"
+            alt={heroAlt}
             width={1400}
             height={627}
-            priority
+            sizes="100vw"
             className="w-full h-auto"
           />
           {/* Text overlay on right — desktop only */}
@@ -209,10 +247,10 @@ export default async function Home() {
         <div className="md:hidden relative">
           <Image
             src="/images/speak-arizona-podcast-mobile-by-marie-feutrier.webp"
-            alt="Rupesh Parbhoo, host of Speak Arizona podcast"
+            alt={heroAlt}
             width={800}
             height={900}
-            priority
+            sizes="100vw"
             className="w-full h-auto"
           />
         </div>

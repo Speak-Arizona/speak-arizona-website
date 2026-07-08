@@ -43,6 +43,8 @@ export default function Blog() {
                       alt={featuredPost.cardImageAlt || featuredPost.imageAlt || featuredPost.title}
                       width={1200}
                       height={675}
+                      priority
+                      sizes="(min-width: 768px) 50vw, 100vw"
                       className={`w-full h-full object-cover ${featuredPost.imagePosition === "center" ? "object-center" : "object-top"} transition-transform duration-500 ease-out group-hover:scale-105`}
                     />
                   </div>

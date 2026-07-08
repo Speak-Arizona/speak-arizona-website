@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getAllSlugs, getAllPosts, getPostBySlug } from "@/lib/blog";
 import ListenSubscribe from "@/components/ListenSubscribe";
+import LiteYouTube from "@/components/LiteYouTube";
 import { jsonLd } from "@/lib/jsonLd";
 
 export async function generateStaticParams() {
@@ -129,13 +130,7 @@ export default async function BlogPost({
         <section className="bg-white pt-12">
           <div className="max-w-3xl mx-auto px-6">
             <div className="overflow-hidden rounded-2xl shadow-lg" style={{ aspectRatio: "16/9" }}>
-              <iframe
-                src={`https://www.youtube.com/embed/${youtubeEmbedId}`}
-                title={post.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              />
+              <LiteYouTube videoId={youtubeEmbedId} title={post.title} />
             </div>
           </div>
         </section>
