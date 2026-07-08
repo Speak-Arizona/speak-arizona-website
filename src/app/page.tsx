@@ -190,13 +190,17 @@ export default async function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema) }}
       />
-      {/* Art-directed hero preloads — each fetches only at its own breakpoint */}
+      {/* Art-directed hero preloads — each fetches only at its own breakpoint,
+          at high priority so the (lazy) hero <img> below is served from cache
+          and stays the fast LCP. Together these replicate next/image `priority`
+          but conditioned by media so the off-breakpoint hero is never fetched. */}
       <link
         rel="preload"
         as="image"
         media="(min-width: 768px)"
         imageSrcSet={desktopHeroProps.srcSet}
         imageSizes={desktopHeroProps.sizes}
+        fetchPriority="high"
       />
       <link
         rel="preload"
@@ -204,6 +208,7 @@ export default async function Home() {
         media="(max-width: 767px)"
         imageSrcSet={mobileHeroProps.srcSet}
         imageSizes={mobileHeroProps.sizes}
+        fetchPriority="high"
       />
       {/* Hero */}
       <section className="overflow-hidden">
