@@ -10,7 +10,7 @@ Next.js website for the Speak Arizona podcast — Arizona's public speaking, lea
 - **Package Manager**: pnpm
 - **Content**: Markdown with gray-matter frontmatter
 - **Markdown Rendering**: remark + remark-html
-- **Email**: None (contact page shows obfuscated email address; no form, no SMTP)
+- **Email**: None (contact page shows a plain `podcast@aztoastmasters.org` mailto; no form, no SMTP)
 - **Hosting**: Vercel (auto-deploys from GitHub push)
 - **Fonts**: Inter (headings), Source Sans 3 (body) — loaded via `next/font/google`
 
@@ -23,9 +23,9 @@ speak-arizona-website/
 │   │   ├── about/page.tsx        # About — story, host, team
 │   │   ├── news/page.tsx         # Blog listing (featured + grid)
 │   │   ├── news/[slug]/page.tsx  # Individual blog post
-│   │   ├── contact/page.tsx      # Contact form
+│   │   ├── contact/page.tsx      # Contact page (plain email, no form)
 │   │   ├── legal/page.tsx        # Terms, privacy, copyright (noindex)
-│   │   ├── api/contact/route.ts  # POST endpoint (Resend)
+│   │   ├── feed.xml/route.ts     # Blog RSS 2.0 feed (static)
 │   │   ├── layout.tsx            # Root layout (Header/Footer, fonts, metadata)
 │   │   ├── globals.css           # Tailwind theme, custom styles
 │   │   └── sitemap.ts            # Dynamic XML sitemap
@@ -45,7 +45,7 @@ speak-arizona-website/
 │   └── blog/                     # Markdown blog posts
 ├── public/
 │   └── images/                   # All images (WebP)
-├── .env.local                    # YOUTUBE_API_KEY, RESEND_API_KEY
+├── .env.local                    # YOUTUBE_API_KEY (no RESEND — contact has no form)
 ├── next.config.ts
 ├── package.json
 └── CLAUDE.md                     # This file
@@ -67,7 +67,7 @@ git commit -m "message"
 git push origin main      # Vercel auto-deploys from GitHub
 ```
 **Production:** https://speakarizona.com
-**GitHub:** https://github.com/DodoBird05/speak-arizona-website (DodoBird05 account)
+**GitHub:** https://github.com/Speak-Arizona/speak-arizona-website (Speak-Arizona org; DodoBird05 is org owner)
 
 ## Brand Colors
 | Tailwind Name | Hex | Usage |
@@ -130,10 +130,12 @@ cardImageAlt: "Alt text for card image (optional)"
 - **Photo credits**: Marie Feutrier photos include `-by-marie-feutrier` in filename
 - **HEIC conversion**: `sips -s format jpeg source.HEIC --out /tmp/temp.jpg` then `cwebp`
 - **Rotation fix for HEIC**: add `-r 90` to sips if photo comes out sideways
+- **Immutable cache**: `/images/*` is served `Cache-Control: public, max-age=31536000, immutable` (next.config.ts). So **never edit an image in place** — a changed image gets a **new filename**, otherwise cached copies never refresh.
+- **Never delete source images**: when re-encoding, move the original to `~/Sites/speak-arizona-originals/` (OUTSIDE this repo — it is public on GitHub), never `rm` it.
 
 ## Contact Page
 - **Page**: `/contact` (server component, no form)
-- Shows obfuscated email: `podcast [at] aztoastmasters.org` to avoid spam scrapers
+- Shows a plain `podcast@aztoastmasters.org` mailto link (plain text is canon — decided over obfuscation)
 - No API route, no SMTP, no env vars
 - Form was removed 2026-05-08 — Marie didn't want her personal Gmail tied to Speak Arizona for SMTP, and no one on the AZ Toastmasters team had time to set up domain-verified email sending
 

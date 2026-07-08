@@ -41,6 +41,20 @@ type YouTubeVideoItem = {
   contentDetails: { duration: string };
 };
 
+// Parse an ISO-8601 duration (YouTube contentDetails.duration, e.g. "PT1M30S",
+// "PT45S", "PT1H2M", or "P0D" for a live/upcoming stream) into total seconds.
+function durationToSeconds(iso: string): number {
+  const m = /^P(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?$/.exec(iso);
+  if (!m) return 0;
+  const [, d, h, min, s] = m;
+  return (
+    Number(d || 0) * 86400 +
+    Number(h || 0) * 3600 +
+    Number(min || 0) * 60 +
+    Number(s || 0)
+  );
+}
+
 async function getVideos(): Promise<{ latest: Video | null; recent: Video[] }> {
   // Try YouTube Data API first
   if (YOUTUBE_API_KEY) {
@@ -70,18 +84,19 @@ async function getVideos(): Promise<{ latest: Video | null; recent: Video[] }> {
       const detailData = await detailRes.json();
       const details: YouTubeVideoItem[] = detailData.items || [];
 
-      // Build duration map — Shorts are under 61 seconds (PT1M or less)
-      const durationMap = new Map<string, boolean>();
+      // A real episode is longer than 60 seconds. Parsing the duration (rather
+      // than regex-matching its string form) reliably drops both Shorts (≤60s)
+      // and live/upcoming streams (duration "P0D" → 0s), either of which would
+      // otherwise slip in as the "latest episode".
+      const isEpisode = new Map<string, boolean>();
       for (const d of details) {
-        const dur = d.contentDetails.duration; // e.g. PT1M30S, PT45S, PT1H2M
-        const isShort = /^PT(\d+S|[0-5]?\dS|1M)$/.test(dur);
-        durationMap.set(d.id, !isShort);
+        isEpisode.set(d.id, durationToSeconds(d.contentDetails.duration) > 60);
       }
 
       const fullVideos: Video[] = [];
       for (const item of items) {
         const vid = item.snippet.resourceId.videoId;
-        if (!durationMap.get(vid)) continue; // skip Shorts
+        if (!isEpisode.get(vid)) continue; // skip Shorts and live/upcoming
         fullVideos.push({
           videoId: vid,
           title: item.snippet.title,
@@ -112,11 +127,12 @@ async function getVideos(): Promise<{ latest: Video | null; recent: Video[] }> {
     const xml = await res.text();
     const entries = xml.split("<entry>").slice(1);
 
+    // The RSS feed carries no duration, so Shorts can't be filtered out here the
+    // way the API path does — acceptable because RSS is only the fallback used
+    // when the API is unavailable. (The old /shorts/ URL check was a no-op: this
+    // feed always uses watch?v= links.)
     const fullVideos: Video[] = [];
     for (const entry of entries) {
-      const linkMatch = entry.match(/<link rel="alternate" href="([^"]+)"/);
-      const href = linkMatch?.[1] || "";
-      if (href.includes("/shorts/")) continue;
       const idMatch = entry.match(/<yt:videoId>([^<]+)<\/yt:videoId>/);
       const titleMatch = entry.match(/<title>([^<]+)<\/title>/);
       const publishedMatch = entry.match(/<published>([^<]+)<\/published>/);
@@ -134,7 +150,7 @@ async function getVideos(): Promise<{ latest: Video | null; recent: Video[] }> {
 
     return {
       latest: fullVideos[0] || null,
-      recent: fullVideos.slice(1, 5),
+      recent: fullVideos.slice(1, 7),
     };
   } catch {
     return { latest: null, recent: [] };

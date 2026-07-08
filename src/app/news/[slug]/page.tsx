@@ -442,7 +442,13 @@ export default async function BlogPost({
           padding-left: 1.5rem;
           margin-bottom: 1.25rem;
         }
-        .blog-content ul li {
+        .blog-content ol {
+          list-style-type: decimal;
+          padding-left: 1.5rem;
+          margin-bottom: 1.25rem;
+        }
+        .blog-content ul li,
+        .blog-content ol li {
           font-size: 1.125rem;
           line-height: 1.8;
           color: #555;

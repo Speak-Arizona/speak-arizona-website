@@ -348,8 +348,8 @@ export default function Legal() {
 
             <h3 className="legal-subheading">Content Ownership</h3>
             <p className="legal-text">
-              Copyright &copy; 2025&ndash;{new Date().getFullYear()} Speak
-              Arizona. All rights reserved.
+              Copyright &copy; 2025&ndash;present Speak Arizona. All rights
+              reserved.
             </p>
             <p className="legal-text">
               All original content on this website &mdash; including text,

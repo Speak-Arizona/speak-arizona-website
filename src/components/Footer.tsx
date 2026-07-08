@@ -136,8 +136,7 @@ export default function Footer() {
 
         <div className="border-t border-white/20 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-white/50 text-sm">
           <span>
-            &copy; {new Date().getFullYear()} Speak Arizona. Powered by
-            District 3 Toastmasters.
+            &copy; Speak Arizona. Powered by District 3 Toastmasters.
           </span>
           <Link
             href="/legal"

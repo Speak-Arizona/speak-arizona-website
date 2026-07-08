@@ -47,28 +47,30 @@ const team: TeamMember[] = [
   },
 ];
 
-const HEADER_HEIGHT_MOBILE = 48; // px — yellow banner only
-const HEADER_HEIGHT_DESKTOP = 104; // px — banner + nav
 const THUMB_BAR_HEIGHT = 140; // px — thumbnail bar height
-
-function getHeaderHeight() {
-  if (typeof window === "undefined") return HEADER_HEIGHT_DESKTOP;
-  return window.innerWidth >= 768
-    ? HEADER_HEIGHT_DESKTOP
-    : HEADER_HEIGHT_MOBILE;
-}
+const HEADER_HEIGHT_FALLBACK = 104; // px — used only before the real header is measured (SSR / first paint)
 
 export default function StickyTeamCards() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const zoneRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [headerH, setHeaderH] = useState(HEADER_HEIGHT_DESKTOP);
+  const [headerH, setHeaderH] = useState(HEADER_HEIGHT_FALLBACK);
 
   useEffect(() => {
-    const updateHeader = () => setHeaderH(getHeaderHeight());
-    updateHeader();
-    window.addEventListener("resize", updateHeader);
-    return () => window.removeEventListener("resize", updateHeader);
+    // Measure the real sticky <header> (banner + nav) instead of assuming fixed
+    // pixel heights — the mobile banner is taller than the old 48px guess and
+    // can wrap, which would silently drift the sticky offsets below.
+    const header = document.querySelector("header");
+    if (!header) return;
+    const measure = () => setHeaderH(header.getBoundingClientRect().height);
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(header);
+    window.addEventListener("resize", measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+    };
   }, []);
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import Image from "next/image";
 
 type Episode = {
@@ -12,7 +12,7 @@ type Episode = {
 
 export default function EpisodeCarousel({ episodes }: { episodes: Episode[] }) {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const barRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: "left" | "right") => {
     if (!scrollRef.current) return;
@@ -25,16 +25,27 @@ export default function EpisodeCarousel({ episodes }: { episodes: Episode[] }) {
 
   useEffect(() => {
     const el = scrollRef.current;
-    if (!el) return;
-    const handleScroll = () => {
+    const bar = barRef.current;
+    if (!el || !bar) return;
+    // Drive the progress bar straight through the DOM ref (rAF-throttled) instead
+    // of React state, so scrolling never re-renders the card list. The thumb is a
+    // fixed 20% wide and slides across the remaining 80% as you scroll.
+    let frame = 0;
+    const update = () => {
+      frame = 0;
       const maxScroll = el.scrollWidth - el.clientWidth;
-      if (maxScroll > 0) {
-        setScrollProgress(el.scrollLeft / maxScroll);
-      }
+      const progress = maxScroll > 0 ? el.scrollLeft / maxScroll : 0;
+      bar.style.marginLeft = `${progress * 80}%`;
     };
-    el.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => el.removeEventListener("scroll", handleScroll);
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    update();
+    return () => {
+      el.removeEventListener("scroll", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, []);
 
   return (
@@ -71,6 +82,9 @@ export default function EpisodeCarousel({ episodes }: { episodes: Episode[] }) {
                 month: "short",
                 day: "numeric",
                 year: "numeric",
+                // Pin to UTC so the server (UTC) and client (Phoenix) render the
+                // same day near midnight — avoids a hydration text mismatch.
+                timeZone: "UTC",
               })
             : "";
 
@@ -114,14 +128,12 @@ export default function EpisodeCarousel({ episodes }: { episodes: Episode[] }) {
         })}
       </div>
 
-      {/* Progress bar */}
+      {/* Progress bar — fixed 20% thumb, position driven by the scroll handler */}
       <div className="mt-4 h-1 bg-gray-200 rounded-full overflow-hidden">
         <div
+          ref={barRef}
           className="h-full bg-black rounded-full transition-all duration-150"
-          style={{
-            width: `${Math.max(20, 20 + scrollProgress * 80)}%`,
-            marginLeft: `${scrollProgress * (80 - Math.max(20, 20))}%`,
-          }}
+          style={{ width: "20%", marginLeft: "0%" }}
         />
       </div>
     </div>

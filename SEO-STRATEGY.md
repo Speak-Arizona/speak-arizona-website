@@ -1,5 +1,10 @@
 # Speak Arizona — SEO Strategy & Growth Plan
 
+> **⚠️ Status note (2026-07-08): OFF-SITE TACTICS IN THIS DOC ARE RULED OUT — do not act on them.**
+> - **No backlink outreach / directory submissions / guest-backlink pipeline** for this site. Backlink work is HeadshotsByMarie-only; not done for or from Toastmasters sites.
+> - **Speak Arizona is a District 3 site, not Marie's.** She is not in charge of District 3's SEO or analytics, and District 3's numbers are never tracked with her HBM/Riemagine tools. Do not build tracking/measurement or off-site SEO campaigns off this doc.
+> - Keep this file only as reference for **on-site / content** ideas (keyword themes, on-page structure) done as the webmaster building the site. Everything link-building or measurement-related here is superseded by the above.
+
 ## Overview
 Speak Arizona is a weekly podcast about public speaking, leadership, and communication hosted by Rupesh Parbhoo. Powered by District 3 Toastmasters (Arizona, New Mexico, West Texas).
 
