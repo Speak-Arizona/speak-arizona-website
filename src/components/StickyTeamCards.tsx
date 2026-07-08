@@ -38,6 +38,13 @@ const team: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/mariefeutrier/",
     website: "https://headshotsbymarie.com",
   },
+  {
+    name: "Edna Saucke",
+    role: "Social Media Strategist",
+    image: "/images/edna-saucke-social-media-strategist-speak-arizona.webp",
+    description:
+      "Edna Saucke is the Social Media Strategist for Speak Arizona, where she combines her passion for digital marketing with her commitment to helping others find their voice through Toastmasters. A longtime Toastmaster, Edna has served in numerous leadership roles, including Vice President Public Relations, Area Director, Division Director, Club Coach, and district communications volunteer. With a background in content strategy and social media, she enjoys creating engaging campaigns that spotlight members, promote clubs and events, and inspire people to develop their communication and leadership skills. Edna believes every person has a story worth telling and is dedicated to helping the Arizona Toastmasters community grow, one post, one connection, and one conversation at a time.",
+  },
 ];
 
 const HEADER_HEIGHT_MOBILE = 48; // px — yellow banner only
