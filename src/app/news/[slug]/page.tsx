@@ -2,9 +2,10 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { getAllSlugs, getAllPosts, getPostBySlug } from "@/lib/blog";
+import { getAllSlugs, getAllPosts, getPostBySlug, getPublicImageDimensions } from "@/lib/blog";
 import ListenSubscribe from "@/components/ListenSubscribe";
 import LiteYouTube from "@/components/LiteYouTube";
+import GuideSignupForm from "@/components/GuideSignupForm";
 import { jsonLd } from "@/lib/jsonLd";
 
 export async function generateStaticParams() {
@@ -20,10 +21,10 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug);
   if (!post) return {};
 
-  const ogImage = post.image
-    ? `https://speakarizona.com${post.image}`
-    : "https://speakarizona.com/images/speak-arizona-default-og.webp";
+  const ogImagePath = post.image || "/images/speak-arizona-default-og.webp";
+  const ogImage = `https://speakarizona.com${ogImagePath}`;
   const ogImageAlt = post.imageAlt || post.title;
+  const ogDims = getPublicImageDimensions(ogImagePath);
 
   return {
     title: post.title,
@@ -42,6 +43,7 @@ export async function generateMetadata({
         {
           url: ogImage,
           alt: ogImageAlt,
+          ...(ogDims ? { width: ogDims.width, height: ogDims.height } : {}),
         },
       ],
     },
@@ -65,15 +67,32 @@ export default async function BlogPost({
 
   const otherPosts = getAllPosts().filter((p) => p.slug !== slug).slice(0, 3);
 
+  // Extract YouTube embed ID from URL (episode posts embed the video)
+  const youtubeEmbedId = post.youtubeUrl
+    ? post.youtubeUrl.includes('youtu.be/')
+      ? post.youtubeUrl.split('youtu.be/')[1]?.split('?')[0]
+      : post.youtubeUrl.includes('v=')
+        ? post.youtubeUrl.split('v=')[1]?.split('&')[0]
+        : null
+    : null;
+
+  const canonical = `https://speakarizona.com/news/${slug}/`;
+  const publishedISO = new Date(post.date).toISOString();
+  const modifiedISO =
+    post.updated && !Number.isNaN(new Date(post.updated).getTime())
+      ? new Date(post.updated).toISOString()
+      : publishedISO;
+  const ogImageUrl = post.image
+    ? `https://speakarizona.com${post.image}`
+    : "https://speakarizona.com/images/speak-arizona-default-og.webp";
+
   const articleSchema = {
-    "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
     description: post.excerpt,
-    datePublished: new Date(post.date).toISOString(),
-    image: post.image
-      ? `https://speakarizona.com${post.image}`
-      : "https://speakarizona.com/images/speak-arizona-default-og.webp",
+    datePublished: publishedISO,
+    dateModified: modifiedISO,
+    image: ogImageUrl,
     author: {
       "@type": "Organization",
       name: "Speak Arizona",
@@ -88,23 +107,62 @@ export default async function BlogPost({
         url: "https://speakarizona.com/images/logo.png",
       },
     },
-    mainEntityOfPage: `https://speakarizona.com/news/${slug}/`,
+    mainEntityOfPage: canonical,
   };
 
-  // Extract YouTube embed ID from URL
-  const youtubeEmbedId = post.youtubeUrl
-    ? post.youtubeUrl.includes('youtu.be/')
-      ? post.youtubeUrl.split('youtu.be/')[1]?.split('?')[0]
-      : post.youtubeUrl.includes('v=')
-        ? post.youtubeUrl.split('v=')[1]?.split('&')[0]
-        : null
+  const breadcrumbSchema = {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://speakarizona.com/" },
+      { "@type": "ListItem", position: 2, name: "News", item: "https://speakarizona.com/news/" },
+      { "@type": "ListItem", position: 3, name: post.title, item: canonical },
+    ],
+  };
+
+  // Episode posts (those with a video) also get a VideoObject + PodcastEpisode
+  // so the page is eligible for video and podcast rich results. Both are driven
+  // entirely from existing frontmatter. The VideoObject is defined once with an
+  // @id and referenced from PodcastEpisode.associatedMedia (no duplication);
+  // PodcastEpisode.partOfSeries points at the layout's PodcastSeries @id.
+  const videoNodeId = `${canonical}#video`;
+  const videoObjectSchema = youtubeEmbedId
+    ? {
+        "@type": "VideoObject",
+        "@id": videoNodeId,
+        name: post.title,
+        description: post.excerpt,
+        thumbnailUrl: `https://i.ytimg.com/vi/${youtubeEmbedId}/hqdefault.jpg`,
+        uploadDate: publishedISO,
+        embedUrl: `https://www.youtube-nocookie.com/embed/${youtubeEmbedId}`,
+        contentUrl: post.youtubeUrl,
+      }
     : null;
+  const podcastEpisodeSchema = youtubeEmbedId
+    ? {
+        "@type": "PodcastEpisode",
+        name: post.title,
+        description: post.excerpt,
+        datePublished: publishedISO,
+        url: canonical,
+        partOfSeries: { "@id": "https://speakarizona.com/#podcast" },
+        associatedMedia: { "@id": videoNodeId },
+      }
+    : null;
+
+  const schemaGraph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      articleSchema,
+      breadcrumbSchema,
+      ...(youtubeEmbedId ? [podcastEpisodeSchema, videoObjectSchema] : []),
+    ],
+  };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(schemaGraph) }}
       />
 
       {/* Hero */}
@@ -204,6 +262,41 @@ export default async function BlogPost({
             className="blog-content"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
+
+          {/* End-of-article lead magnet — free confident-speaking guide */}
+          <aside className="mt-16">
+            <div
+              className="rounded-2xl overflow-hidden shadow-lg grid md:grid-cols-[180px_1fr] md:items-center bg-cover bg-center"
+              style={{ backgroundImage: "url('/images/gradient-card.webp')" }}
+            >
+              <div className="hidden md:block p-6 pr-0">
+                <Image
+                  src="/images/10-tips-confident-speaking-guide-cover.webp"
+                  alt="Free guide: 10 Tips to Look More Confident While Speaking"
+                  width={800}
+                  height={1036}
+                  sizes="180px"
+                  className="w-full h-auto rounded-lg shadow-md"
+                />
+              </div>
+              <div className="p-6">
+                <p className="text-yellow font-heading font-semibold text-xs uppercase tracking-wide mb-2">
+                  Free guide
+                </p>
+                <h2 className="text-white font-heading font-bold text-xl md:text-2xl mb-2">
+                  10 Tips to Look More Confident While Speaking
+                </h2>
+                <p className="text-white/80 text-sm mb-4">
+                  Join the Speak Arizona email list and get the free guide in your inbox.
+                </p>
+                <GuideSignupForm
+                  submitLabel="SEND ME THE GUIDE"
+                  adTracking="episode-post-footer"
+                  idPrefix="post-lm"
+                />
+              </div>
+            </div>
+          </aside>
 
           {/* 7. Social Share */}
           <div className="mt-16 pt-8 border-t border-gray-200">

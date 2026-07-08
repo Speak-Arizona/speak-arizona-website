@@ -53,7 +53,7 @@ export const metadata: Metadata = {
       {
         url: "https://speakarizona.com/images/speak-arizona-podcast-public-speaking-leadership-by-marie-feutrier.webp",
         width: 1400,
-        height: 626,
+        height: 627,
         alt: "Speak Arizona Podcast — Public Speaking, Leadership & Communication",
       },
     ],
@@ -112,10 +112,15 @@ export default function RootLayout({
             __html: jsonLd({
               "@context": "https://schema.org",
               "@type": "PodcastSeries",
+              // Stable @id so each episode's PodcastEpisode.partOfSeries can
+              // reference this series node (see news/[slug]/page.tsx).
+              "@id": "https://speakarizona.com/#podcast",
               name: "Speak Arizona",
               description:
                 "Weekly podcast on public speaking, leadership, and communication skills. Hosted by Rupesh Parbhoo with World Champions of Public Speaking, bestselling authors, and executive coaches.",
               url: "https://speakarizona.com",
+              image:
+                "https://speakarizona.com/images/speak-arizona-podcast-cover-by-marie-feutrier.webp",
               webFeed: "https://feed.podbean.com/speakarizona/feed.xml",
               author: {
                 "@type": "Person",
@@ -128,6 +133,11 @@ export default function RootLayout({
               },
               inLanguage: "en-US",
               genre: ["Public Speaking", "Leadership", "Communication"],
+              sameAs: [
+                "https://open.spotify.com/show/53gLq1FiWjTgPR4q9n7Kc4",
+                "https://podcasts.apple.com/us/podcast/speak-arizona/id1463493084",
+                "https://www.youtube.com/@speakarizona",
+              ],
             }),
           }}
         />

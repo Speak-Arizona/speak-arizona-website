@@ -61,6 +61,16 @@ function getWebpDimensions(
   return result;
 }
 
+// Intrinsic dimensions of a public image referenced by site-absolute path
+// (e.g. "/images/foo.webp"), for og:image width/height. Returns null if it
+// can't be measured. Reuses the memoized WebP header parser above.
+export function getPublicImageDimensions(
+  imagePath: string
+): { width: number; height: number } | null {
+  if (!imagePath.startsWith("/")) return null;
+  return getWebpDimensions(path.join(publicDir, imagePath));
+}
+
 // Post-process the rendered markdown <img> tags: inject loading="lazy" and
 // decoding="async" (below-the-fold images no longer download eagerly) plus the
 // real intrinsic width/height read at build time, which gives the browser an
@@ -88,6 +98,7 @@ export type BlogPost = {
   slug: string;
   title: string;
   date: string;
+  updated?: string;
   excerpt: string;
   tag: string;
   guest?: string;
@@ -156,6 +167,7 @@ export function getAllPosts(): BlogPostMeta[] {
       date,
       excerpt,
       tag,
+      updated: data.updated || undefined,
       guest: data.guest || undefined,
       image: data.image || undefined,
       imageAlt: data.imageAlt || undefined,
@@ -214,6 +226,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     date,
     excerpt,
     tag,
+    updated: data.updated || undefined,
     guest: data.guest || undefined,
     image: data.image || undefined,
     imageAlt: data.imageAlt || undefined,

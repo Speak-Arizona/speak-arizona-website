@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import FaqAccordion from "@/components/FaqAccordion";
+import GuideSignupForm from "@/components/GuideSignupForm";
 import { jsonLd } from "@/lib/jsonLd";
 
 export const metadata: Metadata = {
@@ -384,78 +385,7 @@ export default function GetBetterAtPublicSpeaking() {
                 ))}
               </ul>
 
-              {/* AWeber sign-up form — list awlist6811283 (Speak Arizona, guide lead magnet),
-                  confirmed opt-in. Posts directly to AWeber; on submit the browser
-                  is sent to AWeber's confirmation ("check your email") page. AWeber
-                  requires both name and email (meta_required). To change the
-                  thank-you destination, update the redirect fields (regenerate the
-                  embed code in AWeber). */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <form
-                  method="post"
-                  action="https://www.aweber.com/scripts/addlead.pl"
-                  acceptCharset="UTF-8"
-                  className="space-y-3"
-                  aria-label="Download the free guide"
-                >
-                  <input type="hidden" name="meta_web_form_id" value="872450051" />
-                  <input type="hidden" name="meta_split_id" value="" />
-                  <input type="hidden" name="listname" value="awlist6811283" />
-                  <input
-                    type="hidden"
-                    name="redirect"
-                    value="https://speakarizona.com/guide-thank-you/"
-                  />
-                  <input
-                    type="hidden"
-                    name="meta_redirect_onlist"
-                    value="https://speakarizona.com/guide-thank-you/"
-                  />
-                  <input
-                    type="hidden"
-                    name="meta_adtracking"
-                    value="lead-magnet-confident-speaking"
-                  />
-                  <input type="hidden" name="meta_message" value="1" />
-                  <input type="hidden" name="meta_required" value="name,email" />
-                  <input type="hidden" name="meta_tooltip" value="" />
-
-                  <label htmlFor="lm-name" className="sr-only">
-                    First name
-                  </label>
-                  <input
-                    id="lm-name"
-                    type="text"
-                    name="name"
-                    required
-                    placeholder="Your first name"
-                    className="w-full rounded-full border border-gray-300 bg-white px-5 py-3 text-text placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-blue"
-                  />
-                  <label htmlFor="lm-email" className="sr-only">
-                    Email address
-                  </label>
-                  <input
-                    id="lm-email"
-                    type="email"
-                    name="email"
-                    required
-                    placeholder="Your email address"
-                    className="w-full rounded-full border border-gray-300 bg-white px-5 py-3 text-text placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-blue"
-                  />
-                  <button
-                    type="submit"
-                    name="submit"
-                    value="Submit"
-                    className="w-full bg-blue text-white font-heading font-bold text-sm px-8 py-4 rounded-full hover:bg-blue-light transition-colors"
-                  >
-                    SEND ME THE GUIDE
-                  </button>
-                </form>
-                <p className="text-text-light text-xs text-center mt-3">
-                  Check your inbox to confirm — your guide arrives right after. No
-                  spam, unsubscribe anytime.
-                </p>
-              </div>
+              <GuideSignupForm />
             </div>
           </div>
         </div>

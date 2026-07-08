@@ -58,6 +58,7 @@ export default function About() {
       "Communication Skills",
       "Toastmasters",
     ],
+    sameAs: ["https://www.linkedin.com/in/rupesh-parbhoo/"],
   };
 
   return (

@@ -14,7 +14,7 @@ imagePosition: "center"
 
 If you've ever been in the middle of a career transition and thought, "Why does this feel so personal?" you're not alone.
 
-Changing jobs, switching industries, or stepping away from a role you've held for years isn't just a logistical challenge. It can shake your sense of identity, trigger self-doubt, and leave you struggling to communicate clearly at exactly the moment it matters most.
+Changing jobs, switching industries, or stepping away from a role you've held for years isn't just a logistical challenge. It can shake your sense of identity, trigger self-doubt, and leave you struggling to [communicate clearly](/news/communicate-clearly-remote-teams/) at exactly the moment it matters most.
 
 In this episode of the Speak Arizona Podcast, host Rupesh Parbhoo sits down with Caitlin Magidson, career coach, psychotherapist, and corporate speaker, to explore what's really happening beneath the surface when career change gets hard, and what you can do about it.
 
@@ -36,7 +36,7 @@ The antidote? Self-awareness.
 
 Caitlin makes a compelling case for mindfulness, not as a wellness buzzword, but as a practical career skill.
 
-When you're in transition, the pressure to decide fast, land the next thing, and project confidence can push you into reactive mode. Mindfulness builds the pause between stimulus and response. It's what allows you to respond thoughtfully instead of reacting from fear.
+When you're in transition, the pressure to decide fast, land the next thing, and [project confidence](/get-better-at-public-speaking/) can push you into reactive mode. Mindfulness builds the pause between stimulus and response. It's what allows you to respond thoughtfully instead of reacting from fear.
 
 That awareness, of your own patterns, your triggers, your values, becomes the foundation for clearer decision-making and more confident communication.
 
@@ -76,7 +76,7 @@ Caitlin explains how developing emotional vocabulary helps you choose how you sh
 
 - Career change stress is often identity disruption, not just a tactics problem.
 - Mindfulness builds the awareness you need to respond, not react, under pressure.
-- Public speaking fear is frequently rooted in past experiences and old narratives, not present reality.
+- [Public speaking fear](/news/from-stutter-to-stage-matt-malan/) is frequently rooted in past experiences and old narratives, not present reality.
 - Self-trust grows when you separate what happened to you from who you are.
 - Emotional vocabulary gives you the language to understand your feelings and choose your response.
 

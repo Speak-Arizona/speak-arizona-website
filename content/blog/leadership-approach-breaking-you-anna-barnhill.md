@@ -39,7 +39,7 @@ The answer always reveals their core strength. The thing that took them from ind
 
 But Anna sees the same thing happen again and again. Leaders push the gas pedal on that strength and never let go. No examination. No adjustment. Just more of what worked before.
 
-That's where the shift happens. Certainty becomes rigidity. Control becomes micromanagement. Expertise becomes the inability to trust anyone else's judgment. The strength that built the career starts limiting the leader, the team, and the entire organization.
+That's where the shift happens. Certainty becomes rigidity. Control becomes micromanagement. [Expertise](/news/why-technical-experts-lose-credibility-boardroom-bianca-riemer/) becomes the inability to trust anyone else's judgment. The strength that built the career starts limiting the leader, the team, and the entire organization.
 
 The hardest part? Most leaders don't see it because they're still getting results. The cracks show up in other ways. Friction with their team. Decisions that feel harder than they should. A growing sense that something isn't working, even though nothing has technically gone wrong.
 
@@ -65,7 +65,7 @@ Anna makes a point in [Leaderwired](https://leaderwired.com/) that reframes the 
 
 That means the leaders who haven't examined their operating system are about to have their gaps exposed at scale. AI will move faster, surface more information, and demand quicker decisions. If your defaults are outdated, AI won't fix them. It will magnify them.
 
-The leaders who thrive in this era won't be the ones with the most expertise or the tightest grip on control. They'll be the ones who did the work of upgrading how they think, decide, and lead before the moment demanded it.
+The leaders who thrive in this era won't be the ones with the most expertise or the tightest grip on control. They'll be the ones who did the work of upgrading how they think, decide, and [lead](/news/what-improv-teaches-about-speaking-leading-connecting/) before the moment demanded it.
 
 ---
 
