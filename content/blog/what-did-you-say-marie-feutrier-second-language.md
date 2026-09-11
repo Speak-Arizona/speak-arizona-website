@@ -7,14 +7,14 @@ guest: "Marie Feutrier"
 youtubeUrl: "https://youtu.be/G4sq-_bvBIA"
 quote: "I feel like I'm losing 20 IQ points when I speak English just because of all the processing that I have to do."
 image: "/images/marie-feutrier-pr-manager-speak-arizona-by-marie-feutrier.webp"
-imageAlt: "Marie Feutrier, PR Manager for Speak Arizona"
+imageAlt: "Marie Feutrier, Webmaster for Speak Arizona"
 ---
 
 There's a moment that anyone who has learned a second language knows. You open your mouth. You say the thing you've been building in your head. And the person across from you stares back with nothing. No recognition. No understanding. Just blank eyes and the unspoken question: *what did you say?*
 
 Marie Feutrier lived that moment over and over again.
 
-Marie grew up in France, near the Italian border. She studied theater arts, worked in marketing, earned a master's in organizational management, and built a career across engineering, construction, and information technology. She also happens to be the PR Manager for Speak Arizona, Past President of Gilbert Toastmasters, and the founder of Headshots by Marie, a professional photography business in the Phoenix metro area.
+Marie grew up in France, near the Italian border. She studied theater arts, worked in marketing, earned a master's in organizational management, and built a career across engineering, construction, and information technology. She also happens to be the Webmaster for Speak Arizona, Past President of Gilbert Toastmasters, and the founder of Headshots by Marie, a professional photography business in the Phoenix metro area.
 
 But before any of that, she was a 35-year-old woman who had just moved to the United States and couldn't speak English.
 
@@ -110,7 +110,7 @@ The shame of sounding imperfect, of not being fluent, of losing your train of th
 
 ## About Marie Feutrier
 
-Marie Feutrier is a professional photographer, the PR Manager for Speak Arizona, Past President of Gilbert Toastmasters, and VPE of ProjectMasters Toastmasters. She is the founder of [Headshots by Marie](https://headshotsbymarie.com), a professional photography business based in the Phoenix metro area.
+Marie Feutrier is a professional photographer, the Webmaster for Speak Arizona, Past President of Gilbert Toastmasters, and VPE of ProjectMasters Toastmasters. She is the founder of [Headshots by Marie](https://headshotsbymarie.com), a professional photography business based in the Phoenix metro area.
 
 **Connect with Marie:**
 - [LinkedIn](https://www.linkedin.com/in/mariefeutrier/)

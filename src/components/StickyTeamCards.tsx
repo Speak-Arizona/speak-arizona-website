@@ -49,7 +49,7 @@ const team: TeamMember[] = [
     role: "Webmaster",
     image: "/images/marie-feutrier-pr-manager-speak-arizona-by-marie-feutrier.webp",
     description:
-      "Marie Feutrier is the voice, and the eye, behind the brand. A professional photographer and District 3's Public Relations Manager, she brings a rare combination of visual and strategic thinking to Speak Arizona. Marie leads social media, content creation, and brand strategy across every platform where the podcast shows up. Her camera captures the hosts and guests; her PR expertise makes sure every episode reaches the right audience. A Past President of Gilbert Toastmasters, she knows the Toastmasters journey from the inside. She believes your voice matters; now use it.",
+      "Marie Feutrier is the eye behind the brand and the hands behind the site. A professional photographer and Speak Arizona's webmaster, she builds and maintains speakarizona.com, from the pages you're reading now to the way each episode gets found. She served as District 3's Public Relations Manager in 2025-2026, and that background still shapes the work: her camera captures the hosts and guests, and her PR instinct makes sure every episode reaches the right audience. A Past President of Gilbert Toastmasters, she knows the Toastmasters journey from the inside. She believes your voice matters; now use it.",
     linkedin: "https://www.linkedin.com/in/mariefeutrier/",
     website: "https://headshotsbymarie.com",
   },
