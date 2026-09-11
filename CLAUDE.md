@@ -1,3 +1,5 @@
+@AGENTS.md
+
 # Speak Arizona Website
 
 ## Project Overview
