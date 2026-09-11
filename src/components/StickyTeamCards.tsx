@@ -30,20 +30,28 @@ const team: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/vincentfeutrier/",
   },
   {
+    name: "Edna Saucke",
+    role: "Social Media Strategist",
+    image: "/images/edna-saucke-social-media-strategist-speak-arizona-by-marie-feutrier.webp",
+    description:
+      "Edna Saucke is the Social Media Strategist for Speak Arizona, where she combines her passion for digital marketing with her commitment to helping others find their voice through Toastmasters. A longtime Toastmaster, Edna has served in numerous leadership roles, including Vice President Public Relations, Area Director, Division Director, Club Coach, and district communications volunteer. With a background in content strategy and social media, she enjoys creating engaging campaigns that spotlight members, promote clubs and events, and inspire people to develop their communication and leadership skills. Edna believes every person has a story worth telling and is dedicated to helping the Arizona Toastmasters community grow, one post, one connection, and one conversation at a time.",
+    linkedin: "https://www.linkedin.com/in/edna-saucke-328a33106/",
+  },
+  {
+    name: "Kat Leslie",
+    role: "Video Editor",
+    image: "/images/kat-leslie-video-editor-speak-arizona.webp",
+    description:
+      "Kat Leslie brings a rare mix of systems thinking and spiritual practice to Speak Arizona. She has spent her career in technology, and she brings that same problem-solver's instinct to the edit, turning raw conversations into finished episodes. She knows the work from the other side of the microphone too: as a Tech Tuesday Ambassador she produces and co-hosts episodes, and she serves the Innovation Podcast as a panel member and cohort facilitator. Away from the timeline, Kat runs a spiritual coaching and energy-healing practice built on HeartMath, Reiki, and presence-based coaching. Toastmasters is where those two sides meet, and she helps people find the confidence and clarity that come from speaking with heart.",
+  },
+  {
     name: "Marie Feutrier",
-    role: "Public Relations Manager",
+    role: "Webmaster",
     image: "/images/marie-feutrier-pr-manager-speak-arizona-by-marie-feutrier.webp",
     description:
       "Marie Feutrier is the voice, and the eye, behind the brand. A professional photographer and District 3's Public Relations Manager, she brings a rare combination of visual and strategic thinking to Speak Arizona. Marie leads social media, content creation, and brand strategy across every platform where the podcast shows up. Her camera captures the hosts and guests; her PR expertise makes sure every episode reaches the right audience. A Past President of Gilbert Toastmasters, she knows the Toastmasters journey from the inside. She believes your voice matters; now use it.",
     linkedin: "https://www.linkedin.com/in/mariefeutrier/",
     website: "https://headshotsbymarie.com",
-  },
-  {
-    name: "Edna Saucke",
-    role: "Social Media Strategist",
-    image: "/images/edna-saucke-social-media-strategist-speak-arizona.webp",
-    description:
-      "Edna Saucke is the Social Media Strategist for Speak Arizona, where she combines her passion for digital marketing with her commitment to helping others find their voice through Toastmasters. A longtime Toastmaster, Edna has served in numerous leadership roles, including Vice President Public Relations, Area Director, Division Director, Club Coach, and district communications volunteer. With a background in content strategy and social media, she enjoys creating engaging campaigns that spotlight members, promote clubs and events, and inspire people to develop their communication and leadership skills. Edna believes every person has a story worth telling and is dedicated to helping the Arizona Toastmasters community grow, one post, one connection, and one conversation at a time.",
   },
 ];
 
@@ -100,7 +108,7 @@ export default function StickyTeamCards() {
         className="sticky z-20 bg-white border-b border-gray-200"
         style={{ top: headerH, height: THUMB_BAR_HEIGHT }}
       >
-        <div className="mx-auto px-6 md:w-[90%] h-full flex items-center justify-center md:justify-end gap-6 md:gap-10">
+        <div className="mx-auto px-3 md:px-6 md:w-[90%] h-full flex items-center justify-center md:justify-end gap-2 md:gap-10">
           {team.map((member, i) => (
             <button
               key={member.name}
@@ -117,7 +125,7 @@ export default function StickyTeamCards() {
               className="flex flex-col items-center gap-2 transition-all duration-300 cursor-pointer group"
             >
               <div
-                className={`w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden transition-all duration-300 ${
+                className={`w-14 h-14 md:w-20 md:h-20 rounded-xl overflow-hidden transition-all duration-300 ${
                   activeIndex === i
                     ? "ring-2 ring-blue scale-110 shadow-lg"
                     : "opacity-50 grayscale group-hover:opacity-80 group-hover:grayscale-0"
