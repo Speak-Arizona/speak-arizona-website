@@ -17,8 +17,10 @@ ignoredBuiltDependencies:
 # so this location is the correct one on both versions.
 #
 # This repo has no `packageManager` pin, so it follows whatever pnpm is on PATH
-# (10.15.0 as of 2026-09-01). Pins reviewed 2026-10-05. That is exactly why the pins cannot sit in
+# (10.15.0 as of 2026-09-01). That is exactly why the pins cannot sit in
 # package.json: a future bump to pnpm 11 would silently disarm them.
+#
+# Pins reviewed 2026-10-05.
 overrides:
   minimatch@3: 3.1.5
   flatted: 3.4.2
