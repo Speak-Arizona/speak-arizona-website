@@ -17,18 +17,21 @@ ignoredBuiltDependencies:
 # so this location is the correct one on both versions.
 #
 # This repo has no `packageManager` pin, so it follows whatever pnpm is on PATH
-# (10.15.0 as of 2026-09-01). That is exactly why the pins cannot sit in
+# (10.15.0 as of 2026-09-01). Pins reviewed 2026-10-05. That is exactly why the pins cannot sit in
 # package.json: a future bump to pnpm 11 would silently disarm them.
 overrides:
   minimatch@3: 3.1.5
   flatted: 3.4.2
   ajv@6: 6.15.0
-  brace-expansion@1: 1.1.18
-  brace-expansion@5: 5.0.9
-  # GHSA-5p4m-2wfm-xmqj covers BOTH lines — <3.15.1 and >=4.0.0 <4.3.1.
-  # One advisory, two ranges; pin each major to its own patched floor.
-  js-yaml@3: 3.15.1
-  js-yaml@4: 4.3.1
+  # GHSA-6j4f-fj2g-mc7p, GHSA-qhr7-859c-m2p7, GHSA-q2hr-2g5m-vwhr (all published
+  # 2026-09-29) each list BOTH lines: 1.x needs >=1.1.21, 5.x needs >=5.0.12.
+  brace-expansion@1: 1.1.21
+  brace-expansion@5: 5.0.12
+  # GHSA-5p4m-2wfm-xmqj (<3.15.1 / <4.3.1) and then GHSA-2883-xcg3-v3hh
+  # (2026-09-08: <3.15.2 / <4.3.2) each cover BOTH lines. Pin each major to the
+  # newest patched floor.
+  js-yaml@3: 3.15.2
+  js-yaml@4: 4.3.2
   '@babel/core': 7.29.7
   postcss@8: 8.5.25
   # postcss's own nanoid dep; GHSA-2v37-7h3g-55p8, patched in 3.3.18.
@@ -37,3 +40,13 @@ overrides:
   # GHSA-c83g-rgw3-j3cx + GHSA-73wf-gq98-2v4g, both published 2026-09-01,
   # both patched in 4.28.7; 4.28.8 is the current 4.28 patch. Build-time only.
   browserslist@4: 4.28.8
+  # GHSA-w5vr-8v7q-w6rv (2026-08-13), patched in 2.11.0. Reaches us via next
+  # (^2.9.19, so in range) and browserslist; the lockfile held 2.10.25 for next.
+  baseline-browser-mapping@2: 2.11.27
+  # GHSA-p498-v437-472g (2026-09-02), via eslint (declares ^0.16.6, so in range).
+  '@humanfs/node': 0.16.8
+  # NOT pinnable: braces <=3.0.3 (GHSA-vfj7-8cjw-p6xm, 2026-09-18) has no patched
+  # release at all. It arrives only via eslint-config-next > @next/eslint-plugin-next
+  # > fast-glob 3.3.1 (exact pin) > micromatch 4 > braces 3, dev-only lint globbing
+  # over our own config patterns. Left visible in the audit on purpose: re-check each
+  # checkup for a braces release or a plugin that drops fast-glob.
