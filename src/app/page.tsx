@@ -7,6 +7,7 @@ import AnimateOnScroll from "@/components/AnimateOnScroll";
 import FaqAccordion from "@/components/FaqAccordion";
 import ListenSubscribe from "@/components/ListenSubscribe";
 import { jsonLd } from "@/lib/jsonLd";
+import sharp from "sharp";
 
 export const metadata: Metadata = {
   alternates: {
@@ -16,6 +17,56 @@ export const metadata: Metadata = {
 
 const YOUTUBE_CHANNEL_ID = "UCZG0h9pQsTHWuo2Z_EkCDJA";
 const UPLOADS_PLAYLIST_ID = "UUZG0h9pQsTHWuo2Z_EkCDJA"; // UC → UU
+
+// YouTube Shorts can run up to 3 minutes (raised from 60 seconds in Oct 2024),
+// and the API has no "is a Short" flag, so anything this long or shorter is
+// treated as a Short. The channel's Shorts are 60-90s clips that a 60-second
+// cutoff let through; full episodes run 40+ minutes.
+const SHORTS_MAX_SECONDS = 180;
+
+// The podcast host also auto-publishes every episode to YouTube as audio only:
+// the cover art held still for the whole episode. Those copies have the same
+// title and length as the real video, so they are told apart by picture.
+// YouTube stores frames from 25%, 50% and 75% through every video (hq1-3.jpg);
+// shrunk to greyscale, an audio-only copy's frames differ by 0 (only encoding
+// noise), while real episodes measured 5 to 67 (mean absolute difference per
+// pixel, 0-255) across 25 episodes checked on 2026-10-16.
+const EPISODES_SHOWN = 7; // 1 newest + 6 in the carousel
+const STATIC_FRAME_MAX_DIFF = 1;
+const FRAME_SAMPLE = { width: 32, height: 18 };
+
+async function framePixels(videoId: string, n: number): Promise<Buffer> {
+  const res = await fetch(`https://i.ytimg.com/vi/${videoId}/hq${n}.jpg`, {
+    next: { revalidate: 3600 },
+  });
+  if (!res.ok) throw new Error(`frame ${n} of ${videoId}: HTTP ${res.status}`);
+  return sharp(Buffer.from(await res.arrayBuffer()))
+    .greyscale()
+    .resize(FRAME_SAMPLE.width, FRAME_SAMPLE.height, { fit: "fill" })
+    .raw()
+    .toBuffer();
+}
+
+function meanPixelDiff(a: Buffer, b: Buffer): number {
+  let sum = 0;
+  for (let i = 0; i < a.length; i++) sum += Math.abs(a[i] - b[i]);
+  return sum / a.length;
+}
+
+// True when the picture never changes, i.e. an audio-only upload. Any failure
+// (frames not generated yet, network error) counts as real video: showing an
+// audio-only copy is better than hiding a real episode.
+async function isAudioOnly(videoId: string): Promise<boolean> {
+  try {
+    const [a, b, c] = await Promise.all([1, 2, 3].map((n) => framePixels(videoId, n)));
+    return (
+      Math.max(meanPixelDiff(a, b), meanPixelDiff(b, c), meanPixelDiff(a, c)) <
+      STATIC_FRAME_MAX_DIFF
+    );
+  } catch {
+    return false;
+  }
+}
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY || "";
 
 type Video = {
@@ -84,19 +135,26 @@ async function getVideos(): Promise<{ latest: Video | null; recent: Video[] }> {
       const detailData = await detailRes.json();
       const details: YouTubeVideoItem[] = detailData.items || [];
 
-      // A real episode is longer than 60 seconds. Parsing the duration (rather
-      // than regex-matching its string form) reliably drops both Shorts (≤60s)
-      // and live/upcoming streams (duration "P0D" → 0s), either of which would
-      // otherwise slip in as the "latest episode".
+      // A real episode is longer than YouTube's maximum Shorts length. Parsing
+      // the duration (rather than regex-matching its string form) reliably
+      // drops both Shorts and live/upcoming streams (duration "P0D" → 0s),
+      // either of which would otherwise slip in as the "latest episode".
       const isEpisode = new Map<string, boolean>();
       for (const d of details) {
-        isEpisode.set(d.id, durationToSeconds(d.contentDetails.duration) > 60);
+        isEpisode.set(
+          d.id,
+          durationToSeconds(d.contentDetails.duration) > SHORTS_MAX_SECONDS
+        );
       }
 
+      // Checked in upload order, stopping once enough episodes are found, so
+      // only the newest few videos ever have their frames fetched.
       const fullVideos: Video[] = [];
       for (const item of items) {
+        if (fullVideos.length === EPISODES_SHOWN) break;
         const vid = item.snippet.resourceId.videoId;
         if (!isEpisode.get(vid)) continue; // skip Shorts and live/upcoming
+        if (await isAudioOnly(vid)) continue; // skip the podcast host's copies
         fullVideos.push({
           videoId: vid,
           title: item.snippet.title,
@@ -112,7 +170,7 @@ async function getVideos(): Promise<{ latest: Video | null; recent: Video[] }> {
       if (fullVideos.length > 0) {
         return {
           latest: fullVideos[0],
-          recent: fullVideos.slice(1, 7),
+          recent: fullVideos.slice(1, EPISODES_SHOWN),
         };
       }
     } catch {
@@ -150,7 +208,7 @@ async function getVideos(): Promise<{ latest: Video | null; recent: Video[] }> {
 
     return {
       latest: fullVideos[0] || null,
-      recent: fullVideos.slice(1, 7),
+      recent: fullVideos.slice(1, EPISODES_SHOWN),
     };
   } catch {
     return { latest: null, recent: [] };

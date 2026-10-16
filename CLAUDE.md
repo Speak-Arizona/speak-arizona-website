@@ -148,7 +148,10 @@ cardImageAlt: "Alt text for card image (optional)"
 - **Component**: `LatestVideo.tsx` — fetches latest uploads from YouTube channel
 - **API**: YouTube Data API v3, cached for 1 hour (ISR revalidation)
 - **Env var**: `YOUTUBE_API_KEY` in `.env.local`
-- **Filters**: Excludes Shorts (by duration)
+- **Filters** (API path only; the RSS fallback has no durations or frames):
+  - **Shorts**: anything 3 minutes or shorter (YouTube's Shorts limit since Oct 2024; a 60-second cutoff let the channel's 66-87s Shorts through)
+  - **Audio-only copies**: the podcast host auto-publishes each episode to YouTube as the cover art held still, with the same title and length as the real video. Detected by comparing YouTube's frames at 25/50/75% (`hq1-3.jpg`) with `sharp`; identical picture = audio-only, hidden. Any failure keeps the video.
+- **`sharp` is a direct dependency** for that frame check (server-side only). Check it in the monthly CVE audit like any other runtime dependency.
 
 ## SEO
 - **Title template**: `"%s | Speak Arizona Podcast"`
