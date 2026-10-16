@@ -76,9 +76,12 @@ export default function Contact() {
             <p className="text-text-light text-lg">
               Reach out at
               <br />
-              <span className="font-bold text-black">
+              <a
+                href="mailto:podcast@aztoastmasters.org"
+                className="font-bold text-black underline-offset-4 hover:underline"
+              >
                 podcast@aztoastmasters.org
-              </span>
+              </a>
             </p>
 
             <div className="pt-8">{followUs}</div>
