@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { getAllSlugs, getAllPosts, getPostBySlug, getPublicImageDimensions } from "@/lib/blog";
+import { getAllSlugs, getAllPosts, getPostBySlug, getPublicImageDimensions, getShareImage } from "@/lib/blog";
 import ListenSubscribe from "@/components/ListenSubscribe";
 import LiteYouTube from "@/components/LiteYouTube";
 import GuideSignupForm from "@/components/GuideSignupForm";
@@ -21,13 +21,13 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug);
   if (!post) return {};
 
-  const ogImagePath = post.image || "/images/speak-arizona-default-og.webp";
-  const ogImage = `https://speakarizona.com${ogImagePath}`;
-  const ogImageAlt = post.imageAlt || post.title;
-  const ogDims = getPublicImageDimensions(ogImagePath);
+  const share = getShareImage(post);
+  const ogImage = `https://speakarizona.com${share.path}`;
+  const ogImageAlt = share.alt;
+  const ogDims = getPublicImageDimensions(share.path);
 
   return {
-    title: post.title,
+    title: post.seoTitle ? { absolute: post.seoTitle } : post.title,
     description: post.excerpt,
     alternates: {
       canonical: `https://speakarizona.com/news/${slug}/`,
@@ -82,9 +82,7 @@ export default async function BlogPost({
     post.updated && !Number.isNaN(new Date(post.updated).getTime())
       ? new Date(post.updated).toISOString()
       : publishedISO;
-  const ogImageUrl = post.image
-    ? `https://speakarizona.com${post.image}`
-    : "https://speakarizona.com/images/speak-arizona-default-og.webp";
+  const ogImageUrl = `https://speakarizona.com${getShareImage(post).path}`;
 
   const articleSchema = {
     "@type": "Article",

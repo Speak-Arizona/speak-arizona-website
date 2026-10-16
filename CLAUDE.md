@@ -103,6 +103,7 @@ Two gradient images replace solid blue in hero sections and cards:
 ```yaml
 ---
 title: "Post Title"
+seoTitle: "Shorter Google title (optional — use when title is over ~60 chars; replaces the browser/Google <title> exactly, no site suffix. Headline, share previews, schema keep title)"
 date: "March 15, 2026"
 excerpt: "Short summary for listings and meta description"
 tag: "Leadership"
@@ -111,7 +112,9 @@ image: "/images/featured-image.webp"
 imageAlt: "Descriptive alt text"
 youtubeUrl: "https://youtu.be/VIDEO_ID (optional — embeds at top of post)"
 quote: "Pull quote from the episode (optional — displayed between video and excerpt)"
-cardImage: "/images/card-image.webp (optional — separate image for news listing cards, falls back to image)"
+quoteAttribution: "Who said the quote (optional — defaults to guest; set it when the quote is from the host or someone else)"
+imagePosition: "center (optional — featured image crop anchor; default is top)"
+cardImage: "/images/card-image.webp (optional — the image that represents the post outside its page: news listing cards, social share preview (og:image), Article schema; falls back to image)"
 cardImageAlt: "Alt text for card image (optional)"
 ---
 ```

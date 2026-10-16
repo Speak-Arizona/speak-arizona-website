@@ -71,6 +71,22 @@ export function getPublicImageDimensions(
   return getWebpDimensions(path.join(publicDir, imagePath));
 }
 
+const DEFAULT_SHARE_IMAGE = "/images/speak-arizona-default-og.webp";
+
+// The image that represents a post outside its own page: social share previews
+// (og:image / twitter) and the Article schema. Same precedence as the /news
+// listing, so a post shows one consistent image wherever it is shared:
+// cardImage, then the featured image, then the site default.
+export function getShareImage(post: BlogPostMeta): { path: string; alt: string } {
+  if (post.cardImage) {
+    return { path: post.cardImage, alt: post.cardImageAlt || post.imageAlt || post.title };
+  }
+  if (post.image) {
+    return { path: post.image, alt: post.imageAlt || post.title };
+  }
+  return { path: DEFAULT_SHARE_IMAGE, alt: post.title };
+}
+
 // Post-process the rendered markdown <img> tags: inject loading="lazy" and
 // decoding="async" (below-the-fold images no longer download eagerly) plus the
 // real intrinsic width/height read at build time, which gives the browser an
@@ -111,6 +127,9 @@ export type BlogPost = {
   youtubeUrl?: string;
   quote?: string;
   quoteAttribution?: string;
+  // Search-result <title>, used as-is (no site suffix) when the headline is too
+  // long for Google. The headline, share previews and schema keep `title`.
+  seoTitle?: string;
   content: string;
 };
 
@@ -178,6 +197,7 @@ export function getAllPosts(): BlogPostMeta[] {
       youtubeUrl: data.youtubeUrl || undefined,
       quote: data.quote || undefined,
       quoteAttribution: data.quoteAttribution || undefined,
+      seoTitle: data.seoTitle || undefined,
     };
   });
 
@@ -237,6 +257,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     youtubeUrl: data.youtubeUrl || undefined,
     quote: data.quote || undefined,
     quoteAttribution: data.quoteAttribution || undefined,
+    seoTitle: data.seoTitle || undefined,
     content,
   };
 }
