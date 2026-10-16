@@ -112,6 +112,8 @@ The shame of sounding imperfect, of not being fluent, of losing your train of th
 
 Marie Feutrier is a professional photographer, the Webmaster for Speak Arizona, Past President of Gilbert Toastmasters, and VPE of ProjectMasters Toastmasters. She is the founder of [Headshots by Marie](https://headshotsbymarie.com), a professional photography business based in the Phoenix metro area.
 
+Read how she joined the podcast team in [the story behind Speak Arizona's 100th episode](/news/speak-arizona-100-episodes-behind-the-scenes/).
+
 **Connect with Marie:**
 - [LinkedIn](https://www.linkedin.com/in/mariefeutrier/)
 - [Headshots by Marie](https://headshotsbymarie.com)

@@ -8,8 +8,8 @@ guest: "Matthew Malan, Marie Feutrier, Vincent Feutrier & Edna Saucke"
 youtubeUrl: "https://youtu.be/LsAW2vcDyD4"
 quote: "The thing that you're afraid of sharing the most, the stutter or your vulnerability or weakness, is what people connect with you the most."
 quoteAttribution: "Rupesh Parbhoo"
-image: "/images/speak-arizona-team-work-session-by-marie-feutrier.webp"
-imageAlt: "Rupesh Parbhoo, Vincent Feutrier, and Matthew Malan during a Speak Arizona work session"
+image: "/images/speak-arizona-team-100th-episode-hands-together.webp"
+imageAlt: "The Speak Arizona team, Matthew Malan, Marie Feutrier, Rupesh Parbhoo, Edna Saucke, and Vincent Feutrier, joining hands in the studio for Episode 100"
 cardImage: "/images/speak-arizona-100-episodes-behind-the-mic-thumbnail.webp"
 cardImageAlt: "The Speak Arizona team celebrating 100 episodes: Behind the Mic, 100 Episodes of Lessons, Leadership and Growth"
 ---
@@ -49,6 +49,8 @@ But the team also learned when to let go. Early on, they debated whether to edit
 That tension between polish and authenticity runs through everything the team does. Marie talked about the importance of showing a real face on social media rather than hiding behind stock photos. Rupesh admitted there are parts of himself he still has not shared on the podcast. He talked about the fear of putting yourself out there and the instinct to stay neutral, to not alienate anyone.
 
 "The thing that you're afraid of sharing the most, the stutter or your vulnerability or weakness, is what people connect with you the most," he said.
+
+(Matt knows this firsthand. Hear how he went [from a childhood stutter to the contest stage](/news/from-stutter-to-stage-matt-malan/), and how Jennifer Emperador [told her hardest story on the DEBx stage](/news/stop-apologizing-amazing-presence-jennifer-emperador/).)
 
 Vincent framed the whole experience as an investment. The skills they are learning on a volunteer podcast are translating directly into paid work. He and Marie landed their first professional video editing gig because of what they learned at Speak Arizona. Matt started his own podcast, Stay Hungry, focused on companies and entrepreneurs. Edna is building a social media portfolio that will carry into her career.
 

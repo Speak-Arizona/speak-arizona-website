@@ -133,10 +133,10 @@ Don's advice is just as clear. Get involved. Find a mentor. And if you see poten
 
 **Don Ratliff** joined Unity Speakers Toastmasters in 2010 after a humbling moment as a best man taught him he never wanted to feel unprepared on his feet again. Encouraged by his own mentor, David Hodish, he competed his way from the club stage all the way to the district contest in 2013. Today he mentors emerging speakers at Maverick Toastmasters, paying forward the belief that was once given to him.
 
-**Matt Malan** is a member of Dobson Ranch Toastmasters and a Toastmasters International Speech Contest competitor. A lifelong stutterer who once went two years without speaking, he went from missing his very first scheduled speech to competing at the division level — proof of what becomes possible when you keep showing up.
+**Matt Malan** is a member of Dobson Ranch Toastmasters and a Toastmasters International Speech Contest competitor. A lifelong stutterer who once went two years without speaking, he went from missing his very first scheduled speech to competing at the division level — proof of what becomes possible when you keep showing up. He is also part of the Speak Arizona team; hear [how the team came together for Episode 100](/news/speak-arizona-100-episodes-behind-the-scenes/).
 
 **Connect with Matt:**
-- LinkedIn: [Matt Malan](https://www.linkedin.com/in/mattmalan6/)
+- LinkedIn: [Matt Malan](https://www.linkedin.com/in/matthew-malan8/)
 
 ---
 

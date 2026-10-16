@@ -107,6 +107,8 @@ He draws one important line: fear is not the same as survival instinct. Fear kee
 
 Six years sober, Luis does not hide where he has been. He is grateful for it. Not because the darkness was good, but because it gave him the contrast to appreciate what he has now.
 
+(Jennifer Emperador made the same choice on the DEBx stage, [telling her hardest story out loud](/news/stop-apologizing-amazing-presence-jennifer-emperador/).)
+
 "I've been down low and at rock bottom and seen how dark it is," he said. "It really makes me appreciate how beautiful everything looks in the light."
 
 His voice was always the tool. Toastmasters gave him the place to sharpen it. And the tall tale he told on the district stage, wild and exaggerated and completely over the top, carried more truth in it than most people realized.

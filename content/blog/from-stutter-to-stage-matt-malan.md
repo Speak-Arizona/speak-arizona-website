@@ -102,6 +102,8 @@ The curse became the engine.
 
 Matt's message to listeners: the things you hide from people — whether it's a stutter, anxiety, depression, or some other part of yourself you're ashamed of — might actually be your greatest gifts. Not because the pain is fun, but because the work you do to overcome it builds something in you that nothing else can.
 
+(Matt went on to join the Speak Arizona team. Hear the story [behind the scenes of our 100th episode](/news/speak-arizona-100-episodes-behind-the-scenes/).)
+
 ---
 
 ## Small Gains: The Trash Can Approach to Public Speaking
@@ -145,7 +147,7 @@ But — and this is the balance — don't get lost staring at the horizon. Stay 
 Matt Malan is a member of Dobson Ranch Toastmasters and a Toastmasters International Speech Contest competitor. He works in sales, marketing, and operations for a family business, and he's currently training for his first marathon. He went from barely being able to say his own name to competing on the Toastmasters International stage — all within a matter of months.
 
 **Connect with Matt:**
-- LinkedIn: [Matt Malan](https://www.linkedin.com/in/mattmalan6/)
+- LinkedIn: [Matt Malan](https://www.linkedin.com/in/matthew-malan8/)
 
 ---
 

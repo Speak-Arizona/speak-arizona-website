@@ -53,6 +53,8 @@ He calls it the shadow self. The stuff we tuck into a corner and protect. The pa
 
 The fix is not to broadcast every secret. It is to get to a place where hiding is no longer consuming all of your energy. As long as you can look in the mirror and feel good about who you see, sharing gets easier. And when sharing gets easier, building a magnetic brand becomes possible.
 
+(Jennifer Emperador built a whole speech around this idea. Read why she tells audiences to [stop apologizing for your amazing presence](/news/stop-apologizing-amazing-presence-jennifer-emperador/).)
+
 ## Fake, Low-Stakes, or Real
 
 Michael breaks social sharing into three categories. Most people default to the first two.
