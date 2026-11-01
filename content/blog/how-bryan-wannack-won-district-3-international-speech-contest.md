@@ -29,6 +29,8 @@ He hadn't. The doctors said it was benign. A natural occurrence. Nothing to worr
 
 The speech was never written for a contest. It started as Bryan's attempt to shift from essay-style speeches to storytelling. He was looking for real stories from his life that were worth telling, and this one kept surfacing. He had already shared it at dinner tables, with friends, with doctors. It was a story well-told before it ever became a speech.
 
+(If you want to find and shape your own, Damon Bates breaks down [how to structure a story](/news/six-steps-better-stories-leadership-damon-bates/) in six steps.)
+
 Then an evaluator named Ryan Burns wrote three words on a feedback sheet: contest winning speech.
 
 That planted the seed.

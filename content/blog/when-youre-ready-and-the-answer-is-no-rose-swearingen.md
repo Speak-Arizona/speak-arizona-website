@@ -2,7 +2,7 @@
 title: "What Happens When You're Ready and the Answer Is Still No"
 date: "May 12, 2026"
 excerpt: "25-year Toastmaster Rose Swearingen on running for International Director, not being nominated, and what leadership looks like when the title doesn't come."
-tag: "Leadership"
+tag: "Resilience Stories"
 guest: "Rose Swearingen"
 youtubeUrl: "https://youtu.be/ysTf4lxKFfE"
 quote: "I used to have to walk into a room with a marching band, and I got to the point where I just needed a string quartet."
@@ -82,6 +82,8 @@ One of the most powerful moments in the episode came from Rupesh himself. He sha
 But a year later, looking back, the picture was completely different. The podcast. The yoga certification. A small business. Things he never would have attempted from inside the safety of a corporate paycheck. He didn't have the courage in that moment. He had the anger. But the anger opened the door that courage eventually walked through.
 
 Now he looks back and wonders why he didn't leave earlier. The answer is simple. He wasn't ready. It took the fracture to create the opening.
+
+(Serban Mare took the leap the other way around, then found himself [going back to corporate](/news/career-setback-to-speaking-success-serban-mare/).)
 
 ## What She'd Tell You
 

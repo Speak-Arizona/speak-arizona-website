@@ -2,7 +2,7 @@
 title: "How Luis Garai Went From Rock Bottom to the District 3 Tall Tales Stage"
 date: "June 30, 2026"
 excerpt: "District 3 Tall Tales champion Luis Garai on addiction, rock bottom, and the ceremony that taught him his voice was the tool — and the job was to grow."
-tag: "Public Speaking"
+tag: "Resilience Stories"
 guest: "Luis Garai"
 youtubeUrl: "https://youtu.be/fW0aPWOJ9a0"
 quote: "Let my voice be a tool when the job is to grow."

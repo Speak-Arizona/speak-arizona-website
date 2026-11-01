@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { getAllSlugs, getAllPosts, getPostBySlug, getPublicImageDimensions, getShareImage } from "@/lib/blog";
+import { getAllSlugs, getPostBySlug, getPublicImageDimensions, getRelatedPosts, getShareImage } from "@/lib/blog";
 import ListenSubscribe from "@/components/ListenSubscribe";
 import LiteYouTube from "@/components/LiteYouTube";
 import GuideSignupForm from "@/components/GuideSignupForm";
@@ -65,7 +65,7 @@ export default async function BlogPost({
   const post = await getPostBySlug(slug);
   if (!post) notFound();
 
-  const otherPosts = getAllPosts().filter((p) => p.slug !== slug).slice(0, 3);
+  const otherPosts = getRelatedPosts(slug, post.tag);
 
   // Extract YouTube embed ID from URL (episode posts embed the video)
   const youtubeEmbedId = post.youtubeUrl

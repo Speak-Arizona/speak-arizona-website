@@ -140,7 +140,7 @@ As Serban put it: stop opening with politeness. Open with presence.
 
 ## About Serban Mare
 
-Serban Mare is a PMP-certified Technical Program Manager with 20 years of experience in the semiconductor industry, leading complex mixed-signal IC projects from concept to mass production. He's also a corporate speaker specializing in stress resilience, energy management, and workplace well-being — and a past co-host of Speak Arizona.
+Serban Mare is a PMP-certified Technical Program Manager with 20 years of experience in the semiconductor industry, leading complex mixed-signal IC projects from concept to mass production. He's also a corporate speaker specializing in stress resilience, energy management, and workplace well-being — and a past co-host of Speak Arizona. Hear what happened next in [From Career Setback to Speaking Success](/news/career-setback-to-speaking-success-serban-mare/).
 
 **Connect with Serban:**
 - LinkedIn: [Serban Mare](https://www.linkedin.com/in/serban-morea-pmp/)

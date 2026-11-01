@@ -2,7 +2,7 @@
 title: "From Stutter to Stage: How Matt Malan Rewrote the Story He Told Himself"
 date: "February 10, 2026"
 excerpt: "Matt Malan went from a childhood stutter and 15 years of silence to competing in the Toastmasters International Speech Contest. This is the story of how he rewrote the beliefs that held him back."
-tag: "Leadership"
+tag: "Resilience Stories"
 guest: "Matthew (Matt) Malan"
 youtubeUrl: "https://youtu.be/0q1RjuuJmPk"
 quote: "To speak is to be human."

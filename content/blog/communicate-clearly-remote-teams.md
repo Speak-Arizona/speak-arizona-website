@@ -2,7 +2,7 @@
 title: "How to Communicate Clearly on Remote Teams (Without More Meetings)"
 date: "February 24, 2026"
 excerpt: "Leadership coach Kelly Soifer breaks down why remote teams overcommunicate in meetings and undercommunicate everywhere else — and how to fix it."
-tag: "Leadership"
+tag: "Communication"
 guest: "Kelly Soifer, Leadership Development & Career Coach"
 youtubeUrl: "https://youtu.be/6saHzP3dpks"
 quote: "The worst way to use a meeting is reporting. Put all that in an asynchronous report and have everyone read it before they come to the meeting — then you can discuss what action items need to emerge."

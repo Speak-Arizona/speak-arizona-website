@@ -2,7 +2,7 @@
 title: "Stop Apologizing for Your Amazing Presence"
 date: "September 29, 2026"
 excerpt: "Holistic embodiment coach Jennifer Emperador on telling her hardest story at DEBx, crying on stage, and why you should stop apologizing for your presence."
-tag: "Public Speaking"
+tag: "Resilience Stories"
 guest: "Jennifer Emperador"
 youtubeUrl: "https://youtu.be/8H65vQLzwIY"
 quote: "Stop apologizing for your amazing presence."

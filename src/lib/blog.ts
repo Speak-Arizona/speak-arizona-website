@@ -116,7 +116,7 @@ export type BlogPost = {
   date: string;
   updated?: string;
   excerpt: string;
-  tag: string;
+  tag: BlogCategory;
   guest?: string;
   image?: string;
   imageAlt?: string;
@@ -135,6 +135,22 @@ export type BlogPost = {
 
 export type BlogPostMeta = Omit<BlogPost, "content">;
 
+// The blog's categories, set in each post's `tag` frontmatter field. This list
+// is the single source of truth: a post with any other tag fails the build.
+// What belongs in each one is defined in CLAUDE.md ("Blog Categories").
+export const BLOG_CATEGORIES = [
+  "Public Speaking",
+  "Communication",
+  "Leadership",
+  "Resilience Stories",
+] as const;
+
+export type BlogCategory = (typeof BLOG_CATEGORIES)[number];
+
+function isBlogCategory(value: string): value is BlogCategory {
+  return (BLOG_CATEGORIES as readonly string[]).includes(value);
+}
+
 // Required frontmatter fields — every consumer assumes these are present and
 // non-empty (news listing, post header, sitemap, schema).
 const REQUIRED_FIELDS = ["title", "date", "excerpt", "tag"] as const;
@@ -145,7 +161,7 @@ const REQUIRED_FIELDS = ["title", "date", "excerpt", "tag"] as const;
 function validateFrontmatter(
   data: Record<string, unknown>,
   filename: string
-): { title: string; date: string; excerpt: string; tag: string } {
+): { title: string; date: string; excerpt: string; tag: BlogCategory } {
   for (const field of REQUIRED_FIELDS) {
     const value = data[field];
     if (typeof value !== "string" || value.trim() === "") {
@@ -160,11 +176,17 @@ function validateFrontmatter(
       `Blog post "${filename}": frontmatter "date" is not a valid date (got "${date}").`
     );
   }
+  const tag = data.tag as string;
+  if (!isBlogCategory(tag)) {
+    throw new Error(
+      `Blog post "${filename}": frontmatter "tag" must be one of ${BLOG_CATEGORIES.map((c) => `"${c}"`).join(", ")} (got "${tag}").`
+    );
+  }
   return {
     title: data.title as string,
     date,
     excerpt: data.excerpt as string,
-    tag: data.tag as string,
+    tag,
   };
 }
 
@@ -207,6 +229,18 @@ export function getAllPosts(): BlogPostMeta[] {
   );
 
   return posts;
+}
+
+// "You May Also Like": the most recent posts in the same category, newest
+// first, never the post itself.
+export function getRelatedPosts(
+  slug: string,
+  category: BlogCategory,
+  count = 3
+): BlogPostMeta[] {
+  return getAllPosts()
+    .filter((p) => p.tag === category && p.slug !== slug)
+    .slice(0, count);
 }
 
 export function getAllSlugs(): string[] {

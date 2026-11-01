@@ -2,7 +2,7 @@
 title: "\"What Did You Say?\" Marie Feutrier on Confidence, Connection, and Learning a Second Language"
 date: "May 20, 2026"
 excerpt: "Marie Feutrier moved to the US at 35 unable to hold a conversation in English. She talks about the anger nobody warned her about, the invisible processing load, and how Toastmasters gave her her voice back."
-tag: "Communication"
+tag: "Resilience Stories"
 guest: "Marie Feutrier"
 youtubeUrl: "https://youtu.be/G4sq-_bvBIA"
 quote: "I feel like I'm losing 20 IQ points when I speak English just because of all the processing that I have to do."

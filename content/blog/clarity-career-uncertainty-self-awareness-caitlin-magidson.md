@@ -2,7 +2,7 @@
 title: "Clarity in Career Uncertainty: Self-Awareness Tools for Better Decisions"
 date: "March 23, 2026"
 excerpt: "Career coach and psychotherapist Caitlin Magidson explores why career change feels so personal, how mindfulness builds clarity under pressure, and what's really behind public speaking fear."
-tag: "Career"
+tag: "Leadership"
 guest: "Caitlin Magidson"
 youtubeUrl: "https://youtu.be/O4e5kh3a2Rs"
 image: "/images/caitlin-magidson-career-coach.webp"

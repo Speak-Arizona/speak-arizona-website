@@ -85,6 +85,8 @@ Credible means you have the knowledge and the experience to back up what you're 
 
 Eloïse said she doesn't work much on the credibility side because that comes with time and experience. She focuses on the other two. Are you truly listening to the people around you? Are you communicating with clarity? Are you building trust through consistency? These are the small shifts that have the biggest impact on how you're perceived as a leader.
 
+(Damon Bates puts it even more bluntly: executive presence is how others see you, and [storytelling is one of the strongest tools](/news/six-steps-better-stories-leadership-damon-bates/) for shaping it.)
+
 ---
 
 ## The Unspoken Agreement

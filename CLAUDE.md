@@ -99,6 +99,16 @@ Two gradient images replace solid blue in hero sections and cards:
 ### After creating a blog post
 - Always start the dev server and open the post in the browser for preview before considering it done.
 
+### Blog Categories
+Every post's `tag` must be one of these four (the list lives in `BLOG_CATEGORIES`, `src/lib/blog.ts`; any other value fails the build). "You May Also Like" shows the 3 most recent posts in the same category.
+
+- **Public Speaking**: speaking *to an audience*. Stage, speeches, contests, keynotes: openings, humor, delivery, feedback on speeches, stage presence.
+- **Communication**: talking *with people*, one-to-one or in small groups, no stage. Conversations, networking, pitching yourself, teams, language, how you come across.
+- **Leadership**: *influencing and guiding others*, or steering your own career. Executive presence, mentoring, leading volunteers and teams, career decisions.
+- **Resilience Stories**: *the guest's own setback*, "this happened to me, and here's how I got through it". The personal story is the point, more than the skill.
+
+**Tie-break:** if the guest's own struggle is the heart of the post, it is Resilience Stories. Otherwise go by setting: stage → Public Speaking, conversation → Communication, leading people → Leadership.
+
 ### Blog Frontmatter
 ```yaml
 ---
@@ -106,7 +116,7 @@ title: "Post Title"
 seoTitle: "Shorter Google title (optional — use when title is over ~60 chars; replaces the browser/Google <title> exactly, no site suffix. Headline, share previews, schema keep title)"
 date: "March 15, 2026"
 excerpt: "Short summary for listings and meta description"
-tag: "Leadership"
+tag: "Leadership (one of the four Blog Categories above)"
 guest: "Guest Name (optional — omit for host-authored posts)"
 image: "/images/featured-image.webp"
 imageAlt: "Descriptive alt text"

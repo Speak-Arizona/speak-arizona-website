@@ -46,6 +46,8 @@ It is not volume. It is not dominance. It is not the loudest voice in the room. 
 
 "If you overdo it, you will not come across as credible. Too much certainty means you lose credibility because it feels like you have something to hide."
 
+(Executive coach Damon Bates shares [a six-step structure for leadership storytelling](/news/six-steps-better-stories-leadership-damon-bates/), one of the most powerful tools for building that presence.)
+
 The best executives Bianca observed during her decade as an analyst were the ones who walked into a room with quiet confidence, acknowledged the risks in their business clearly, and could hold their ground when challenged without becoming defensive. Approachable, but authoritative. Honest about uncertainty, but decisive.
 
 That combination, she says, is what makes someone investable, in every sense of the word.
