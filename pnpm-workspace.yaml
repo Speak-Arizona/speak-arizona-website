@@ -20,9 +20,18 @@ ignoredBuiltDependencies:
 # (10.15.0 as of 2026-09-01). That is exactly why the pins cannot sit in
 # package.json: a future bump to pnpm 11 would silently disarm them.
 #
-# Pins reviewed 2026-10-05.
+# Pins reviewed 2026-11-01.
 overrides:
+  # GHSA-g3hv-75wg-m249 (2026-10-30) lists every minimatch <11.0.1, but its bug
+  # (**/.. globParts amplification in firstPhasePreProcess, optimizationLevel>=2)
+  # does not exist in 3.x (checked: neither name appears in 3.1.5). 3.x cannot be
+  # forced to 11 either: eslint 9 calls require("minimatch") as a function. So
+  # minimatch@3 stays visible in the audit on purpose. Re-check each checkup for
+  # a corrected advisory range or an eslint that drops minimatch 3.
   minimatch@3: 3.1.5
+  # Same advisory, real here. Only typescript-estree uses 10.x, and only the
+  # named minimatch() call, which 11 keeps. Dev-only (lint).
+  minimatch@10: 11.0.3
   flatted: 3.4.2
   ajv@6: 6.15.0
   # GHSA-6j4f-fj2g-mc7p, GHSA-qhr7-859c-m2p7, GHSA-q2hr-2g5m-vwhr (all published
@@ -47,8 +56,11 @@ overrides:
   baseline-browser-mapping@2: 2.11.27
   # GHSA-p498-v437-472g (2026-09-02), via eslint (declares ^0.16.6, so in range).
   '@humanfs/node': 0.16.8
-  # NOT pinnable: braces <=3.0.3 (GHSA-vfj7-8cjw-p6xm, 2026-09-18) has no patched
-  # release at all. It arrives only via eslint-config-next > @next/eslint-plugin-next
-  # > fast-glob 3.3.1 (exact pin) > micromatch 4 > braces 3, dev-only lint globbing
-  # over our own config patterns. Left visible in the audit on purpose: re-check each
-  # checkup for a braces release or a plugin that drops fast-glob.
+  # GHSA-68fv-2mgg-jv7q (2026-09-18), patched in 1.2.2. Via @tailwindcss/node
+  # (^1.2.1) and next. Build-time only.
+  source-map-js: 1.2.2
+  # GHSA-mrhx-c7xc-m3w5 (2026-10-01), patched in 4.6.6. Via
+  # eslint-plugin-react-hooks (^3.25.0 || ^4.0.0). Dev-only.
+  zod@4: 4.6.7
+  # braces <=3.0.3 (GHSA-vfj7-8cjw-p6xm) and sprintf-js <=1.1.3 (GHSA-hp3w-g68c-fv3c)
+  # were both WITHDRAWN by GitHub on 2026-10-22/23, so no pin is needed for either.
