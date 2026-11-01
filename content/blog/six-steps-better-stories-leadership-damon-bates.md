@@ -5,6 +5,8 @@ date: "October 27, 2026"
 excerpt: "Executive coach Damon Bates shares his six-step story structure for senior leaders, and why storytelling is one of the strongest tools for executive presence."
 tag: "Leadership"
 guest: "Damon Bates"
+image: "/images/damon-bates-executive-coach-speak-arizona.webp"
+imageAlt: "Executive coach Damon Bates in a light blue checked shirt and rimless glasses, smiling against a dark gray background"
 youtubeUrl: "https://youtu.be/0BRjcyH5lUw"
 quote: "We don't learn from experience. We learn from reflecting on experience."
 ---
