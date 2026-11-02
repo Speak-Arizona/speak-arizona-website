@@ -55,7 +55,7 @@ speak-arizona-website/
 
 ## Development
 ```bash
-cd "/Users/mariefeutrier/Sites/speak-arizona-website"
+cd "/Users/mariefeutrier/Sites/speak-arizona-website/github"
 pnpm run dev              # Starts on default port (3000 or next available)
 pnpm run build            # Production build
 pnpm run lint             # ESLint
@@ -146,7 +146,7 @@ cardImageAlt: "Alt text for card image (optional)"
 - **HEIC conversion**: `sips -s format jpeg source.HEIC --out /tmp/temp.jpg` then `cwebp`
 - **Rotation fix for HEIC**: add `-r 90` to sips if photo comes out sideways
 - **Immutable cache**: `/images/*` is served `Cache-Control: public, max-age=31536000, immutable` (next.config.ts). So **never edit an image in place** — a changed image gets a **new filename**, otherwise cached copies never refresh.
-- **Never delete source images**: when re-encoding, move the original to `~/Sites/speak-arizona-originals/` (OUTSIDE this repo — it is public on GitHub), never `rm` it.
+- **Never delete source images**: when re-encoding, move the original to `~/Sites/speak-arizona-website/speak-arizona-originals/` (the parent folder, OUTSIDE this repo — it is public on GitHub), never `rm` it.
 
 ## Contact Page
 - **Page**: `/contact` (server component, no form)
